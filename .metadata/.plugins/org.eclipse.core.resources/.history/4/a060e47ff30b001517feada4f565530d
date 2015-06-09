@@ -1,0 +1,5 @@
+
+
+
+
+var infoObject = require(data);

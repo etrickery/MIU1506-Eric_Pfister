@@ -1,0 +1,91 @@
+Ti.UI.backgroundColor = '#000';
+
+
+//used to measure screensize for use in sizing display elements
+	var screenWidth = Ti.Platform.displayCaps.platformWidth;
+	var screenHeight = Ti.Platform.displayCaps.platformHeight;
+
+//access content.js file
+	var loadContent = require('content');
+
+
+
+//title bar
+				var titleBarView = Ti.UI.createView({
+					height: 60,
+					backgroundColor: '#57744b',
+					top: 0
+				});
+						
+				var titleBarLabel = Ti.UI.createLabel({
+					text: 'About Me',
+					color: '#9c8156',
+					font: {fontSize: 14, fontFamily: "Helvetica"},
+					bottom: 5
+				});
+						
+				var titleBarBorder = Ti.UI.createView({
+					height: 1,
+					backgroundColor: '#9c8156',
+					bottom: 0
+				});
+						
+				titleBarView.add(titleBarLabel, titleBarBorder);
+
+
+
+
+
+var mainWindow = Ti.UI.createWindow({
+	background: '#CCC'
+});
+
+//main view to hold enter button, title page
+	var mainInfoView = Ti.UI.createView({
+		height: screenHeight - 70,
+		backgroundColor: '#ddd1b4',
+		top: 61
+	});
+	
+		//main title page	
+			var mainTitle = Ti.UI.createLabel({
+				color: '#57744b',
+				font: {fontSize: 34, fontFamily: "Helvetica", fontWeight: 'bold'},
+				text: "About Me",
+				align: 'center',
+				top: '20%'
+			});
+		
+		//identity	
+			var subTitle = Ti.UI.createLabel({
+				color: '#9c8156',
+				font: {fontSize: 18, fontFamily: "Helvetica"},
+				text: "Eric Pfister\nMIU 1506",
+				align: 'center',
+				top: '30%'
+			});
+		
+		//enter button	
+			var enter = Ti.UI.createLabel({
+				color: '57744b',
+				font: {fontSize: 24, fontFamily: "Helvetica"},
+				text: "Enter",
+				align: 'center',
+				top: '55%'
+			});
+	
+
+//add elements to main page
+	mainInfoView.add(mainTitle, subTitle, enter);
+
+
+//enter button functionality
+	enter.addEventListener("click", loadContent.enterAbout);
+
+
+//draw main window and add elements
+mainWindow.add(titleBarView, mainInfoView);
+mainWindow.open();
+
+
+

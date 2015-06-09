@@ -1,5 +1,154 @@
+//about menu and details
+var enterAbout = function(){
+		
+		//load data from data.js
+		var loadData = require('data');
+		
+		//define about window to display menu within
+		var aboutWindow = Ti.UI.createWindow({
+			backgroundColor: '#9c8156',
+		});
+		
+		
+		//menu title bar
+		var aboutTitleBarView = Ti.UI.createView({
+			height: 60,
+			backgroundColor: '#57744b',
+			top: 0
+		});
+		
+				
+		var aboutTitleBarLabel = Ti.UI.createLabel({
+			text: 'About Me',
+			color: '#ddd1b4',
+			font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: 'bold'},
+			bottom: 5
+		});
+				
+		var aboutTitleBarBorder = Ti.UI.createView({
+			height: 1,
+			backgroundColor: '#9c8156',
+			bottom: 0
+		});
+		
+		
+		//table for menu
+		var questTable = Ti.UI.createTableView({
+			style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
+			height: 'auto',
+			backgroundColor: '#ddd1b4',
+			top: 61
+		});
+		
+		//array to contain table rows
+		var questList = [];
+		
+		//locate elements to include as rows from within json data
+		for(x in loadData.jsonObject){							
+			if(x === 'info'){												
+				for(y in loadData.jsonObject[x]){
+					for(z in loadData.jsonObject[x][y]){
+						if(z === 'question'){
+							//create each row
+							var questionRow = Ti.UI.createTableViewRow({
+								color: '#57744b',
+								title: loadData.jsonObject[x][y].question,
+								//store location into an easily accessible object characteristic
+								varY: y,
+								height: 'auto',
+								hasDetail: true,	
+								font: {fontSize: 12},
+							});
+							//push each row into array
+							questList.push(questionRow);
+						}
+					}
+				}
+			}
+		}
+		
+		//add array to table
+		questTable.setData(questList);
+				
+		//add event proposition to view details based on which menu item is clicked
+		questTable.addEventListener("click", function(event){
+			
+					//set q to varY to use it for figuring out which question i am on
+					var q = event.source.varY;
+					
+					//clear window to display answer
+					var detailWindow = Ti.UI.createWindow({
+						backgroundColor: 'transparent',	
+					});
+					
+					//popup view
+					var detailView = Ti.UI.createView({
+						height: screenHeight - 350,
+						width: screenWidth - 40,
+						backgroundColor: '#809677',
+						verticalAlign: 'center',
+						borderRadius: '15'
+					});
+					
+					//display question
+					var questDetail = Ti.UI.createLabel({
+						Color: '#ddd1b4',
+						font: {fontSize: 18, fontFamily: "Helvetica", fontWeight:'bold'},
+						text: event.source.title,
+						align: 'center',
+						wordWrap: true,
+						top: '25',
+						left: '20',
+						right: '20'
+						
+					});
+					
+					//display answer
+					var answerDetail = Ti.UI.createLabel({
+						Color: '#ddd1b4',
+						font: {fontSize: 16, fontFamily: "Helvetica"},
+						text: loadData.jsonObject[x][q].answer,
+						align: 'left',
+						wordWrap: true,
+						verticalAlign: 'center',
+						left: '20',
+						right: '20'
+					});
+					
+					//exit popup text
+					var exitDetail = Ti.UI.createLabel({
+						Color: '#ddd1b4',
+						font: {fontSize: 20, fontFamily: "Helvetica", fontWeight:'bold'},
+						text: "Back",
+						align: 'center',
+						bottom: '25',	
+						right: '20'
+						
+					});
+					
+					//function to close detail window
+					var closeDetail = function(){
+						detailWindow.close();	
+					};
+				
+					//close detail window on exit click
+					exitDetail.addEventListener("click", closeDetail);
+
+					
+					//load details
+					detailView.add(questDetail, answerDetail, exitDetail);
+					detailWindow.add(detailView);
+					detailWindow.open();
+				
+			
+		});
+		
+		//load menu title bar and menu
+		aboutTitleBarView.add(aboutTitleBarLabel, aboutTitleBarBorder);
+		aboutWindow.add(aboutTitleBarView, questTable);
+		aboutWindow.open();	
+};
 
 
-
-
-var infoObject = require(data);
+//export function to app file
+exports.enterAbout = enterAbout;

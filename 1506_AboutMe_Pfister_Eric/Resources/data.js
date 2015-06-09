@@ -1,19 +1,17 @@
-
-
-
+//json object containing questions and answers
 var jsonObject = {
 				    "info": [
 						        {   
 						        	"question": "What is your name?",
-						        	"answer": "My name is Eric S Pfister."
+						        	"answer": "My name is Eric Pfister. My middle name is Samuel. I'm 36 and live in Terre Haute, Indiana."
 						        },
 						        {   
 						        	"question": "What chat host do you use?",
-						        	"answer": "Google Hangouts is my goto messaging service."
+						        	"answer": "Google Hangouts is my goto messaging service. Google anything is my goto anything to be honest."
 						        },
 						        {   
 						        	"question": "What chat name do you use?",
-						        	"answer": "I use my primary personal email address, etrick@gmail.com for Hangouts."
+						        	"answer": "I use my primary personal email address, etrick@gmail.com for Hangouts. I rarely use google+."
 						        },
 						        {   
 						        	"question": "What time zone are you in?",
@@ -24,16 +22,16 @@ var jsonObject = {
 						        	"answer": "I really love programming, and have been out of the loop for a long time. On my 36th birthday, I decided it was time to go back and finish school. I have always been fascinated by mobile devices and wanted to contribute to the mobile universe."
 						        },
 						        {   
-						        	"question": "How comfortable are you with Javascript",
-						        	"answer": "I have never used Javascript prior to my time at FullSail. I had some experience with other languages though, so I'm not entirely new to programming. I had edited some Javascript by hunting on Google to fix bits here and there. Since joining the program here, I have learned to enjoy it quite a lot. I imagine I will use Javascript often in the future."
+						        	"question": "How comfortable are you with Javascript?",
+						        	"answer": "I had rarely used Javascript prior to my time at FullSail. I have had some experience with other languages though, so I'm not entirely new to programming. I had edited some Javascript by hunting on Google to fix bits here and there. Since joining the MDV program, I enjoy this quite a lot. I imagine I will use Javascript often in the future."
 						        },
 						        {   
-						        	"question": "How comfortable are you with Titanium",
+						        	"question": "How comfortable are you with Titanium?",
 						        	"answer": "Titanium is new to me since joining the MDV program at FullSail, but I have learned to love it and will likely continue to use it long after my time in these courses."	
 						        },
 						        {   
 						        	"question": "Do you have a family?",
-						        	"answer": "I have been married for five years to my wife, Jonna. We have two daughters, Jolee and Journey, who are 9 and 11, respectively. Then Haven is my youngest son at 12, Jarred is 13 as is Logan. We also have two cats that patrol our neighborhood and a tank full of fish (In addition to many neices, nephews and younger cousins that hang out at our place often, it can be a zoo at times)."	
+						        	"answer": "I have been married for five years to my wife, Jonna. We have two daughters, Jolee and Journey, who are 9 and 11, respectively. Then Haven is my youngest son at 12, while Jarred and Logan are 13. We also have two cats that patrol our neighborhood and a tank full of fish, it can be a zoo at times."	
 						        },
 						        {   
 						        	"question": "What kind of work do you do?",
@@ -41,7 +39,7 @@ var jsonObject = {
 						        },
 								{   
 						        	"question": "What is your favorite sport?",
-						        	"answer": "I love to play many sports, basketball is probably my favorite. When it comes to watching sports, however, it is the NFL that grabs my attention. The Indianapolis Colts are the family team, while we have some other secondary teams we secretly root for in the family."	
+						        	"answer": "I love to play many sports, basketball is probably my favorite. When it comes to watching sports, however, it is the NFL that grabs my attention. The Indianapolis Colts are my favorite team, while there are some other secondary teams we secretly root for in the family."	
 						        },
 						        {   
 						        	"question": "What is your favorite TV show?",
@@ -49,15 +47,14 @@ var jsonObject = {
 						        },
 						        {   
 						        	"question": "What is your favorite movie?",
-						        	"answer": "There are many, but Kill Bill, SuperTroopers, Robin Hood: Men in Tights, and Monte Python's The Meaning of Life are at the top of the list."	
+						        	"answer": "There are many, but Kill Bill, SuperTroopers, Robin Hood: Men in Tights, and Monte Python's The Meaning of Life are at the top of the list. These are obviously silly, but so am I."	
 						        }
 				    ]
 };
 
 
-
-
-NEED EXPORT
+//export json object to other files
+exports.jsonObject = jsonObject;
 
 
 

@@ -1,0 +1,69 @@
+var enterAbout = function(){
+		
+		var aboutWindow = Ti.UI.createWindow({
+			backgroundColor: '#FFF',
+		});
+		
+		
+		
+		var aboutTitleBarView = Ti.UI.createView({
+			height: 60,
+			backgroundColor: '#FFF',
+			top: 0
+		});
+				
+		var aboutTitleBarLabel = Ti.UI.createLabel({
+			text: 'About Me',
+			font: {fontSize: 14, fontFamily: "Helvetica", fontColor: "#000"},
+			bottom: 5
+		});
+				
+		var aboutTitleBarBorder = Ti.UI.createView({
+			height: 1,
+			backgroundColor: '#000',
+			bottom: 0
+		});
+		
+		
+		var loadData = require('data');
+		var questTable = Ti.UI.createTableView({
+			height: screenHeight - 70,
+			backgroundColor: '#FFF',
+			top: 61
+		});
+		var questList = Ti.UI.createTableViewSection({
+			
+		});
+		
+		for(x in loadData.jsonObject){
+			if(x === 'info'){
+				for(y in loadData.jsonObject[x]){
+					for(z in loadData.jsonObject[x][y]){
+						if(z === 'question'){
+							var questionRow = Ti.UI.createTableViewRow({
+								title: loadData.jsonObject[x][y].question,
+								hasDetail: true
+							});
+							questList.add(questionRow);
+						}
+					}
+				}
+			}
+		}
+		questTable.add(questList);
+				
+		aboutTitleBarView.add(aboutTitleBarLabel, aboutTitleBarBorder);
+
+		aboutWindow.add(aboutTitleBarView, questTable);
+		aboutWindow.open();	
+};
+
+
+
+
+
+
+
+
+
+exports.enterAbout = enterAbout;
