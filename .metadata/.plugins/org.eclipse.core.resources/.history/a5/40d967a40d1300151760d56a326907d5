@@ -35,15 +35,15 @@ var titleLabel = Ti.UI.createLabel({
 	text: 'MOVINFO',
 	color: '#FFF',
 	font: {fontSize: 48, fontFamily: "Copperplate-bold"},
-	bottom: '20%',
+	bottom: '30%',
 	right: '15'
 });
 
 //add label to titleview
 titleView.add(titleLabel);
 
-//make logo clickable
-titleLabel.addEventListener("click", loadContent.carousel);
+
+
 
 //build screen out
 mainWindow.add(titleView);

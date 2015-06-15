@@ -42,8 +42,8 @@ var titleLabel = Ti.UI.createLabel({
 //add label to titleview
 titleView.add(titleLabel);
 
-//make logo clickable
-titleLabel.addEventListener("click", loadContent.carousel);
+
+
 
 //build screen out
 mainWindow.add(titleView);

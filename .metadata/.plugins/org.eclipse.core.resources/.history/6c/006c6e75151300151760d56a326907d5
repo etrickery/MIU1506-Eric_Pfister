@@ -14,7 +14,7 @@ var carousel = function(){
 		//image view shell
 		var titleView = Ti.UI.createView({
 				backgroundColor: 'transparent',
-				height: 360,
+				height: 340,
 				width: screenWidth,
 				top: 0
 		});

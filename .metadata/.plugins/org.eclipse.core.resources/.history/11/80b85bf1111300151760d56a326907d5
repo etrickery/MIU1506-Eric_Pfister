@@ -14,32 +14,21 @@ var carousel = function(){
 		//image view shell
 		var titleView = Ti.UI.createView({
 				backgroundColor: 'transparent',
-				height: 360,
-				width: screenWidth,
-				top: 0
-		});
-		
-		//card
-		var titleViewBackground = Ti.UI.createView({
-				backgroundColor: '#CCC',
-				opacity: 0.25,
 				height: 340,
-				width: screenWidth - 10,
-				borderRadius: '6',
-				top: 20
+				width: screenWidth
 		});
 		
 		//image loading 
-		var poster = Ti.UI.createImageView({
-				image: "images/20200.jpg",
-				width: 214,
-				height: 317,
-				align: 'center',
-				top: 30
+		var poster = TiUI.imageView({
+			image: "images/20200",
+			width: 214,
+			height: 317,
+			left: 15,
+			top: 0
 		});
 
-		//poster
-		titleView.add(titleViewBackground, poster);
+		
+		titleView.add(poster);
 		carouselWindow.add(titleView);
 		carouselWindow.open();
 		
