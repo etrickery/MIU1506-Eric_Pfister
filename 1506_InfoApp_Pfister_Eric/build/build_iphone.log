@@ -1,0 +1,105 @@
+
+6/14/2015, 11:07:41 PM
+
+Operating System
+  Name                        = Mac OS X
+  Version                     = 10.10.3
+  Architecture                = 64bit
+  # CPUs                      = 8
+  Memory                      = 17179869184
+
+Node.js
+  Node.js Version             = 0.12.1
+  npm Version                 = 2.5.1
+
+Titanium CLI
+  CLI Version                 = 4.0.0
+
+Titanium SDK
+  SDK Version                 = 4.0.0.GA
+  SDK Path                    = /Users/ericpfister/Library/Application Support/Titanium/mobilesdk/osx/4.0.0.GA
+  Target Platform             = iphone
+
+Command
+  /usr/local/bin/node /Users/ericpfister/.appcelerator/install/4.0.0/package/node_modules/appc-cli-titanium/node_modules/titanium/bin/titanium build --platform iphone --log-level trace --sdk 4.0.0.GA --project-dir /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric --target simulator --ios-version 8.3 --device-family iphone --deploy-type development --sim-type iphone --sim-version 8.3 --device-id A7B41607-C030-4725-8468-ED3DE239CF1E --skip-js-minify --no-colors --no-progress-bars --no-prompt --prompt-type socket-bundle --prompt-port 60152 --plugin-paths /Users/ericpfister/.appcelerator/install/4.0.0/package/node_modules --config-file /var/folders/1n/f4tl8gs10313gy_ltqghwsdc0000gn/T/build-1434337659142.json --no-banner
+
+[DEBUG]  Detecting modules in /Users/ericpfister/Library/Application Support/Titanium/modules
+[DEBUG]  Detected android module: com.appcelerator.apm 1.1.1 @ /Users/ericpfister/Library/Application Support/Titanium/modules/android/com.appcelerator.apm/1.1.1
+[DEBUG]  Detected android module: facebook 3.0.3 @ /Users/ericpfister/Library/Application Support/Titanium/modules/android/facebook/3.0.3
+[DEBUG]  Detected android module: facebook 4.0.3 @ /Users/ericpfister/Library/Application Support/Titanium/modules/android/facebook/4.0.3
+[DEBUG]  Detected android module: ti.cloudpush 3.3.7 @ /Users/ericpfister/Library/Application Support/Titanium/modules/android/ti.cloudpush/3.3.7
+[DEBUG]  Detected android module: ti.cloudpush 3.3.8 @ /Users/ericpfister/Library/Application Support/Titanium/modules/android/ti.cloudpush/3.3.8
+[DEBUG]  Detected android module: ti.map 2.2.3 @ /Users/ericpfister/Library/Application Support/Titanium/modules/android/ti.map/2.2.3
+[DEBUG]  Detected android module: ti.map 2.3.0 @ /Users/ericpfister/Library/Application Support/Titanium/modules/android/ti.map/2.3.0
+[DEBUG]  Detected commonjs module: ti.cloud 3.2.7 @ /Users/ericpfister/Library/Application Support/Titanium/modules/commonjs/ti.cloud/3.2.7
+[DEBUG]  Detected commonjs module: ti.cloud 3.2.8 @ /Users/ericpfister/Library/Application Support/Titanium/modules/commonjs/ti.cloud/3.2.8
+[DEBUG]  Detected iphone module: com.appcelerator.apm 1.1.1 @ /Users/ericpfister/Library/Application Support/Titanium/modules/iphone/com.appcelerator.apm/1.1.1
+[DEBUG]  Detected iphone module: com.appcelerator.urlSession 1.1.0 @ /Users/ericpfister/Library/Application Support/Titanium/modules/iphone/com.appcelerator.urlSession/1.1.0
+[DEBUG]  Detected iphone module: com.appcelerator.urlSession 1.1.1 @ /Users/ericpfister/Library/Application Support/Titanium/modules/iphone/com.appcelerator.urlSession/1.1.1
+[DEBUG]  Detected iphone module: facebook 3.2.0 @ /Users/ericpfister/Library/Application Support/Titanium/modules/iphone/facebook/3.2.0
+[DEBUG]  Detected iphone module: facebook 4.0.3 @ /Users/ericpfister/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3
+[DEBUG]  Detected iphone module: ti.coremotion 1.1.0 @ /Users/ericpfister/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0
+[DEBUG]  Detected iphone module: ti.map 2.2.0 @ /Users/ericpfister/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.0
+[DEBUG]  Detected iphone module: ti.map 2.2.2 @ /Users/ericpfister/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2
+[DEBUG]  Detected iphone module: ti.touchid 1.1.0 @ /Users/ericpfister/Library/Application Support/Titanium/modules/iphone/ti.touchid/1.1.0
+[DEBUG]  Looking for Titanium module id=ti.cloud version=latest platform=commonjs deploy-type=development
+[INFO]   Found Titanium module id=ti.cloud version=3.2.8 platform=commonjs deploy-type=development path=/Users/ericpfister/Library/Application Support/Titanium/modules/commonjs/ti.cloud/3.2.8
+[DEBUG]  No project level plugins to load
+[DEBUG]  Titanium SDK iOS directory: /Users/ericpfister/Library/Application Support/Titanium/mobilesdk/osx/4.0.0.GA/iphone
+[INFO]   Deploy type: development
+[INFO]   Building for target: simulator
+[INFO]   Building using iOS SDK: 8.3
+[INFO]   Building for iOS Simulator: iPhone 6
+[DEBUG]  UDID: A7B41607-C030-4725-8468-ED3DE239CF1E
+[DEBUG]  Simulator type: iphone
+[DEBUG]  Simulator version: 8.3
+[INFO]   Building for device family: iphone
+[DEBUG]  Setting Xcode target to Debug
+[DEBUG]  Setting Xcode build OS to iphonesimulator8.3
+[DEBUG]  Xcode installation: /Applications/Xcode.app/Contents/Developer
+[DEBUG]  iOS WWDR certificate: installed
+[INFO]   Minimum iOS version: 7.0
+[INFO]   Debugging disabled
+[INFO]   Profiler disabled
+[INFO]   Initiating prepare phase
+[DEBUG]  Setting Info.plist CFBundleVersion to 1.0
+[DEBUG]  Setting Info.plist CFBundleShortVersionString to 1.0
+[DEBUG]  Copying /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/iphone/appicon.png => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/appicon.png
+[INFO]   Initiating Xcode pre-compile phase
+[DEBUG]  Symlinking /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/KS_nav_ui.png => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/KS_nav_ui.png
+[DEBUG]  Symlinking /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/KS_nav_views.png => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/KS_nav_views.png
+[DEBUG]  Ignoring /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/iphone
+[DEBUG]  Copying /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/iphone/Default-568h@2x.png => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/Default-568h@2x.png
+[DEBUG]  Copying /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/iphone/Default-667h@2x.png => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/Default-667h@2x.png
+[DEBUG]  Copying /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/iphone/Default-Landscape-736h@3x.png => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/Default-Landscape-736h@3x.png
+[DEBUG]  Copying /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/iphone/Default-Portrait-736h@3x.png => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/Default-Portrait-736h@3x.png
+[DEBUG]  Copying /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/iphone/Default.png => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/Default.png
+[DEBUG]  Copying /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/iphone/Default@2x.png => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/Default@2x.png
+[DEBUG]  Copying /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/iphone/appicon.png => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/appicon.png
+[INFO]   Processing JavaScript files
+[DEBUG]  Symlinking /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/app.js => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/app.js
+[DEBUG]  Symlinking /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/content.js => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/content.js
+[DEBUG]  Symlinking /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/Resources/data.js => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/data.js
+[DEBUG]  Symlinking /Users/ericpfister/Library/Application Support/Titanium/modules/commonjs/ti.cloud/3.2.8/ti.cloud.js => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/ti.cloud.js
+[INFO]   Processing Titanium namespace resources
+[DEBUG]  Copying /Users/ericpfister/Library/Application Support/Titanium/mobilesdk/osx/4.0.0.GA/iphone/modules/ui/images => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/modules/ui/images
+[INFO]   Skipping xcodebuild
+[INFO]   Finished building the application in 278ms
+[INFO]   Launching iOS Simulator
+[DEBUG]  [ioslib] Removing old log file: /Users/ericpfister/Library/Developer/CoreSimulator/Devices/A7B41607-C030-4725-8468-ED3DE239CF1E/data/Containers/Data/Application/B014CD42-7C18-41AE-B411-DD782559FE61/Documents/a7ca700e-546f-4a6c-9444-0096d036aca8.log
+[DEBUG]  [ioslib] Executing: /Users/ericpfister/Library/Application Support/Titanium/mobilesdk/osx/4.0.0.GA/node_modules/ioslib/lib/ios-sim "launch" "/Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app" "--verbose" "--xcode-dir" "/Applications/Xcode.app/Contents/Developer" "--udid" "A7B41607-C030-4725-8468-ED3DE239CF1E" "--timeout" "180"
+[DEBUG]  [ioslib] Executing: osascript "/Users/ericpfister/Library/Application Support/Titanium/mobilesdk/osx/4.0.0.GA/node_modules/ioslib/lib/iphone_sim_activate.scpt" "/Applications/Xcode.app/Contents/Developer/Applications/iOS Simulator.app"
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] App Spec: <DTiPhoneSimulatorApplicationSpecifier 0x7f80d8517590> specified by app path /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] SDK Root: <DTiPhoneSimulatorSystemRoot 0x7f80daa0b060> path=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] Creating named pipe at `/var/folders/1n/f4tl8gs10313gy_ltqghwsdc0000gn/T//ios-sim-stderr-pipe-1434337662'
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] Creating named pipe at `/var/folders/1n/f4tl8gs10313gy_ltqghwsdc0000gn/T//ios-sim-stdout-pipe-1434337662'
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] using device family iphone
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] Comparing 6EB0725C-4A02-41A7-B9F7-70D3F3AC9765 == A7B41607-C030-4725-8468-ED3DE239CF1E
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] Comparing CCF65657-B6BF-41C7-8B1A-EB1B6832283F == A7B41607-C030-4725-8468-ED3DE239CF1E
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] Comparing 09DF3BDD-95EE-4C49-90D4-45F157E47220 == A7B41607-C030-4725-8468-ED3DE239CF1E
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] Comparing F3B8470A-5264-4706-9FFB-370531B51F23 == A7B41607-C030-4725-8468-ED3DE239CF1E
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] Comparing A7B41607-C030-4725-8468-ED3DE239CF1E == A7B41607-C030-4725-8468-ED3DE239CF1E
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] set device to : iPhone 6
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] Session started
+[DEBUG]  [ioslib] Found application log file: /Users/ericpfister/Library/Developer/CoreSimulator/Devices/A7B41607-C030-4725-8468-ED3DE239CF1E/data/Containers/Data/Application/EA966EDF-A085-4BDE-B56F-EE31641D6F10/Documents/a7ca700e-546f-4a6c-9444-0096d036aca8.log
+[INFO]   Project built successfully in 3s 424ms
