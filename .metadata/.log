@@ -1102,3 +1102,28 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/ericpfis
 
 !ENTRY org.eclipse.core.net 1 0 2015-06-14 23:14:59.114
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2015-06-15 19:38:55.926 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_80
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/ericpfister/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/ericpfister/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-06-15 19:39:01.716
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.appcelerator.titanium.ui.ide 4 0 2015-06-15 19:39:20.347
+!MESSAGE (Build 4.0.0.201505202026) [ERROR] com.appcelerator.titanium.core/debug/dashboard Unknown SDK windows
+
+!ENTRY com.aptana.samples 4 0 2015-06-15 19:39:20.348
+!MESSAGE (Build 4.0.0.201505202026) [ERROR]  Unable to retrieve the icon at null for sample Employee Directory
+
+!ENTRY com.aptana.samples 4 0 2015-06-15 19:39:20.351
+!MESSAGE (Build 4.0.0.201505202026) [ERROR]  Unable to retrieve the icon at null for sample Movies
+
+!ENTRY com.aptana.samples 4 0 2015-06-15 19:39:20.353
+!MESSAGE (Build 4.0.0.201505202026) [ERROR]  Unable to retrieve the icon at null for sample Geocoder
+
+!ENTRY com.aptana.samples 4 0 2015-06-15 19:39:20.354
+!MESSAGE (Build 4.0.0.201505202026) [ERROR]  Unable to retrieve the icon at null for sample Rss Reader

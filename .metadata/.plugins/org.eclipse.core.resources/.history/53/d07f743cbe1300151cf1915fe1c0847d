@@ -1,0 +1,66 @@
+//carousel, details, and reviews
+var loadContent = require('data');
+
+//create carousel
+var carousel = function(){
+		//main window
+		var carouselWindow = Ti.UI.createWindow({
+				backgroundColor: ''
+		});
+		
+		//image view shell
+		var titleView = Ti.UI.createView({
+				backgroundColor: 'transparent',
+				height: 360,
+				width: screenWidth,
+				top: 0
+		});
+		
+		//card
+		var titleViewBackground = Ti.UI.createView({
+				backgroundColor: '#CCC',
+				opacity: 0.25,
+				height: 340,
+				width: screenWidth - 10,
+				borderRadius: '6',
+				top: 20
+		});
+		
+		//image loading 
+		var poster = Ti.UI.createImageView({
+				image: "images/20200.jpg",
+				width: 214,
+				height: 317,
+				align: 'center',
+				top: 30
+		});
+		
+		//previous button
+		var prevButton = Ti.UI.createImageView({
+				image: "images/prevButton.png",
+				backgroundColor: '#000',
+				left: 15,
+				top: 30,
+				width: 100,
+				height: 317 
+		}); 
+		
+		//next button
+		var nextButton = Ti.UI.createImageView({
+				image: "images/nextButton.png",
+				backgroundColor: '#000',
+				right: 15,
+				top: 30,
+				width: 100,
+				height: 317 
+		}); 
+
+		//poster
+		titleView.add(titleViewBackground, poster, prevButton, nextButton);
+		carouselWindow.add(titleView);
+		carouselWindow.open();
+		
+};
+
+
+exports.carousel = carousel;

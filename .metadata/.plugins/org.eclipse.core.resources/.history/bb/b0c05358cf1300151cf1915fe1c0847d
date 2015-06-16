@@ -1,0 +1,52 @@
+//carousel, details, and reviews
+var loadContent = require('data');
+
+
+//create carousel
+var carousel = function(){
+		
+		
+		//main window
+		var carouselWindow = Ti.UI.createWindow({
+				backgroundImage: "images/" + selectedMovie + ".jpg"
+		});
+		
+		//image view shell
+		var titleView = Ti.UI.createView({
+				backgroundColor: 'transparent',
+				height: 120,
+				width: screenWidth,
+				bottom: 0
+		});
+		
+		
+		//previous button
+		var prevButton = Ti.UI.createImageView({
+				image: "images/prevButton.png",
+				backgroundColor: '#e6e7e8',
+				left: 50,
+				bottom: 50,
+				width: 50,
+				height: 50 
+		}); 
+		
+		//next button
+		var nextButton = Ti.UI.createImageView({
+				image: "images/nextButton.png",
+				backgroundColor: '#e6e7e8',
+				right: 50,
+				bottom: 50,
+				width: 50,
+				height: 50 
+		}); 
+
+
+		//load window parts
+		titleView.add(prevButton, nextButton);
+		carouselWindow.add(titleView);
+		carouselWindow.open();
+		
+};
+
+
+exports.carousel = carousel;

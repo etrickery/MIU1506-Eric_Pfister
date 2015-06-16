@@ -5,11 +5,15 @@
 //screen fill
 Ti.UI.backgroundColor = "#000";
 
+
 //global variables
 var imageCollectionFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "images");
 var imageCollection = imageCollectionFolder.getDirectoryListing();
 var screenWidth = Ti.Platform.displayCaps.platformWidth;
 var screenHeight = Ti.Platform.displayCaps.platformHeight;
+var selectedMovie = 20200;
+var numMovies = 5;
+
 
 //load content page
 var loadContent = require('content');
