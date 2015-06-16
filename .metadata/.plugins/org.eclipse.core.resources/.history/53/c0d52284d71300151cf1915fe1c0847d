@@ -76,7 +76,7 @@ var carousel = function(){
 					bottom: 60
 				});
 				
-				titleView.add(titleImage, titleBar);
+				titleView.add(titleImage, this.prevButton, this.nextButton, titleBar);
 				carouselWindow.add(titleView);
 		};
 		
@@ -88,6 +88,7 @@ var carousel = function(){
 				};
 				console.log(selectedMovie);
 				
+				titleView.hide();
 				
 				
 				var titleBar = Ti.UI.createView({

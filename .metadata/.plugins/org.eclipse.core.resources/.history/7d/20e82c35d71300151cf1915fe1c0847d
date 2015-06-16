@@ -61,6 +61,8 @@ var carousel = function(){
 				};
 				console.log(selectedMovie);
 				
+				titleImage.hide();
+				titleBar.hide();
 				
 				var titleBar = Ti.UI.createView({
 					backgroundColor: '#e6e7e8',
@@ -77,7 +79,7 @@ var carousel = function(){
 				});
 				
 				titleView.add(titleImage, titleBar);
-				carouselWindow.add(titleView);
+				//carouselWindow.add(titleView);
 		};
 		
 		var next = function(){
@@ -88,7 +90,8 @@ var carousel = function(){
 				};
 				console.log(selectedMovie);
 				
-				
+				titleImage.hide();
+				titleBar.hide();
 				
 				var titleBar = Ti.UI.createView({
 					backgroundColor: '#e6e7e8',
@@ -104,8 +107,8 @@ var carousel = function(){
 					bottom: 60
 				});
 				
-				titleView.add(titleImage, prevButton, nextButton, titleBar);
-				carouselWindow.add(titleView);
+				titleView.add(titleImage, titleBar);
+				//carouselWindow.add(titleView);
 		};
 		
 		

@@ -17,19 +17,7 @@ var carousel = function(){
 				top: 0
 		});
 		
-		var titleBar = Ti.UI.createView({
-					backgroundColor: '#e6e7e8',
-					height: 25,
-					width: screenWidth,
-					top: 0
-				
-				});
-			
-		var titleImage = Ti.UI.createImageView({
-					image: "images/" + selectedMovie + "a.jpg",
-					height: 240,
-					bottom: 60
-				});
+		
 		
 		//previous button
 		var prevButton = Ti.UI.createImageView({
@@ -61,7 +49,6 @@ var carousel = function(){
 				};
 				console.log(selectedMovie);
 				
-				
 				var titleBar = Ti.UI.createView({
 					backgroundColor: '#e6e7e8',
 					height: 25,
@@ -76,7 +63,7 @@ var carousel = function(){
 					bottom: 60
 				});
 				
-				titleView.add(titleImage, titleBar);
+				titleView.add(titleImage, prevButton, nextButton, titleBar);
 				carouselWindow.add(titleView);
 		};
 		
@@ -87,8 +74,6 @@ var carousel = function(){
 					selectedMovie++;
 				};
 				console.log(selectedMovie);
-				
-				
 				
 				var titleBar = Ti.UI.createView({
 					backgroundColor: '#e6e7e8',
@@ -109,8 +94,8 @@ var carousel = function(){
 		};
 		
 		
-		prevButton.addEventListener('click', previous);
-		nextButton.addEventListener('click', next);
+		//prevButton.addEventListener('click', previous);
+		//nextButton.addEventListener('click', next);
 		
 		
 		//load window parts

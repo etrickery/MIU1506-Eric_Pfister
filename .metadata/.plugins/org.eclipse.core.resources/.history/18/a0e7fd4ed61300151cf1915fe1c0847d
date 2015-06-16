@@ -61,7 +61,6 @@ var carousel = function(){
 				};
 				console.log(selectedMovie);
 				
-				
 				var titleBar = Ti.UI.createView({
 					backgroundColor: '#e6e7e8',
 					height: 25,
@@ -76,7 +75,7 @@ var carousel = function(){
 					bottom: 60
 				});
 				
-				titleView.add(titleImage, titleBar);
+				titleView.add(titleImage, prevButton, nextButton, titleBar);
 				carouselWindow.add(titleView);
 		};
 		
@@ -87,8 +86,6 @@ var carousel = function(){
 					selectedMovie++;
 				};
 				console.log(selectedMovie);
-				
-				
 				
 				var titleBar = Ti.UI.createView({
 					backgroundColor: '#e6e7e8',
@@ -109,8 +106,8 @@ var carousel = function(){
 		};
 		
 		
-		prevButton.addEventListener('click', previous);
-		nextButton.addEventListener('click', next);
+		//prevButton.addEventListener('click', previous);
+		//nextButton.addEventListener('click', next);
 		
 		
 		//load window parts
