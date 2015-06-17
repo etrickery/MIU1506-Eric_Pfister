@@ -18,8 +18,8 @@ var jsonObject = {
 										"Date1": "October 12th, 2005",
 										"Review1": "When the forces of light and dark take to battle and realize they are equally strong, decide to make a truce. The people of light will become the Nightwatch, and the people of darkness will become the Daywatch. Neither side can force people to join their side, they have the freedom of choice. The Daywatch and Nightwatch keep tabs to make sure this truce holds. When Anton finds out he is an other; a person with special powers, he joins the side of light. Anton is a seer and when he is finding a victim of two vampires, he runs into Svetlana, a virgin cursed with bad luck and key into the Apocolpes. Night Watch is a mind blowing, visually astounding triumph of Russian cinema. Its dark, claustrophobic, grungy and a very thrilling ride. You can see that Timur Bekmambetov has a history in commercials, this moves at a fast paced and the camera doesn't stop moving, with constant fast swoops and always tracking around. The story has been done many times before, but it seems so fresh here. The flaw of the story though is that it's so layered it's hard to understand at first. As it moves at such at fast pace, there isn't much chance to take everything in and to nut everything out. But with all the energy Nightwatch contains, you don't care, cause you'll gladly go again. For the small budget it had, you wonder how they made this film. You are constantly blown away by the visual effects. They are so flawless. The subtitles are cleverly used as well; they come into a form of their own. All i can say is i cant wait for the sequels to now make there way over.",
 										"Rating2": "8",
-										"Author1": "vikingvampireparrot (Worcester, UK)",
-										"Date1": "August 25th 2006",
+										"Author2": "vikingvampireparrot (Worcester, UK)",
+										"Date2": "August 25th 2006",
 										"Review2": "This was a very interesting and compelling take on vampirism in the modern day. It has to be up there with Blade and Underworld. However, it is best viewed as the first part of a trilogy and not a stand alone film. There is a lot to take in - what exactly are 'others' etc. It is a huge new world to learn about in one film but if you take as the first of a trilogy it doesn't matter so much that you didn't follow every last detail. All of the acting was up to scratch, the action sequence well done and well up to the standard of most Hollywood fare. Very interesting storyline, well worth watching. Would also be a good introduction to foreign films, maybe a bit more similar to US/UK films that Korean titles etc. I saw the dubbed version so I can't comment on the subtitles which apparently match the film style very well."
 									},
 									{
@@ -39,8 +39,8 @@ var jsonObject = {
 										"Date1": "December 21st, 2006",
 										"Review1": "This movie is very fast paced, you shouldn't miss any of it because it gets kind of confusing. Anyways, by the end of the movie you are in disbelief of how well done it is. The entire movie had me on the edge of my seat trying to figure out what was going to happen. Then at the end you feel that everything works out, but still leaves you with some questions about what is next. Either way this is an excellent movie, and if you like movies like Memento or Seven in my opinion this movie is a perfect fit for you. Bruce Willis gives an excellent performance, but Brad Pitt's performance as the insane person is well done and also will make you laugh at the things he does. Anyways great movie, great directing, great acting. 9/10......go and see it you won't regret it.",
 										"Rating2": "8",
-										"Author1": "Angeneer (from Athens, Greece)",
-										"Date1": "September 14th, 2000",
+										"Author2": "Angeneer (from Athens, Greece)",
+										"Date2": "September 14th, 2000",
 										"Review2": "This film has the unique ability of satisfying almost every possible taste. And it does so with class. With Twelve Monkeys you get high quality acting, effects, costumes, drama, (non-linear) plot, character study, action and fiction. There are some elements that could be developed more, but I guess there has been a compromise so as it appeals to more people. Still, it's a very entertaining and fulfilling movie experience. There is no way you'll feel sorry for the money you spent for the theater or the rental or the DVD."
 									},
 									{
@@ -60,8 +60,8 @@ var jsonObject = {
 										"Date1": "February 8th, 2004",
 										"Review1": "Can't say it's bad for its genre, but for me, it didn't live up to the hype. I can see how it was cool, but this isn't the kind of movie that I'd want to watch over and over again because it's that good. I think Tarantino's done better.",
 										"Rating2": "10",
-										"Author1": "Mark Hulme (from Manchester, England)",
-										"Date1": "February 10th, 2004",
+										"Author2": "Mark Hulme (from Manchester, England)",
+										"Date2": "February 10th, 2004",
 										"Review2": "Amazing film definitely one of Tarantino's best if not his best. This film is basically flawless and I can't believe some people dislike this film. The action scenes are great and the music is exceptional definitely one of the best things about Kill Bill. Tarantino has done martial arts/samurai fans proud and it is great to see references to past Tarantino flicks aswell as early martial arts flicks. I hope Kill Bill vol 2 is on par with this. Everyone should see this flick, enough said."
 									},
 									{
@@ -81,8 +81,8 @@ var jsonObject = {
 										"Date1": "May 21, 2002",
 										"Review1": "This was a welcome change of pace, a film that was a bit independent and a bit mainstream, yet all in all, was still hilarious. With an unknown and unproven cast, this film captured a certain sense of zeal within a viewer, certainly making the viewer wish highway patrolmen were this funny and irregular all the time. Funny, even though the comedy was sometimes low brow, this film certainly earned its accolades at the Sundance Film Festival.",
 										"Rating2": "10",
-										"Author1": "Aeryck Arayuss (from US)",
-										"Date1": "June 20th, 2006",
+										"Author2": "Aeryck Arayuss (from US)",
+										"Date2": "June 20th, 2006",
 										"Review2": "This movie was hysterical! The way they joked around with each other was so true to life! It wasn't unrealistic at all! Anybody who sees this will have to agree that there is at least one character in the film that reminds them of one of their buddies! I know it sure reminded me of the guys that hang around me! We just saw the movie this evening on IFC in widescreen, without commercials, and unedited. I am very happy I waited to see it this way instead of a TNT, TBS, USA, or FOX broadcast version. I am definitely getting this movie on DVD as soon as possible! The outtakes and behind the scenes features are probably fantastic!"
 									},
 									{
@@ -102,8 +102,8 @@ var jsonObject = {
 										"Date1": "February 14th, 2001",
 										"Review1": "I have seen this movie many times and yet it still astonishes me every time I watch it. Even though I know the ending I still feel myself being caught up in the plot. It is possibly one of the greatest scripts of all time. I can't remember another movie in which I was completely astonished at the finale. The cast gives a tremendous performance. Kevin Spacey gives one of his two best performances (the other being as John Doe in Se7en) in my opinion. That is probably why he was awarded Best Actor for this role. It was truly deserved. Gabriel Byrne also gives a great performance. It may be the best character Stephen Baldwin has ever played. In all, this is a must for any movie collector or enthusiast.",
 										"Rating2": "10",
-										"Author1": "Daniel Elford (from UK)",
-										"Date1": "January 1st, 2011",
+										"Author2": "Daniel Elford (from UK)",
+										"Date2": "January 1st, 2011",
 										"Review2": "Forget M. Night Shyamalan with his plot holes and fall-apart final acts, this film has, unarguably, the most well-executed finale of this sort, at least of the 90s! Great writing, shuffling time frame to keep you on your feet, details and full scenes that see completely different the second time you see it, and brilliantly played from top to bottom, this is Film Noir at its best! The fact Bryan Singer was a young first-time director makes the whole thing all the more incredible to watch; you simply can't believe this is the product of a crew healmed by somebody so supposedly inexperienced. In his own words, perhaps if he tried to make this now, he wouldn't be able to......so I say, thanks goodness it came to him when it did! To say anything else would be to spoil the experience....just see it!"
 									}
 					

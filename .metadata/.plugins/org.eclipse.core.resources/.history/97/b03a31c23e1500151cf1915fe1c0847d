@@ -1,0 +1,254 @@
+//carousel, details, and reviews
+
+
+
+//create carousel
+var carousel = function(){
+		
+		var loadData = require('data');
+		
+		
+		var closeCarousel = function(){
+			carouselWindow.close();
+		};
+		
+		var carouselWindow = Ti.UI.createWindow({
+			backgroundColor: "#000"
+		});
+		
+		var escapeHatch = Ti.UI.createView({
+			width: screenWidth,
+			height: 15,
+			backgroundColor: 'transparent',
+			top: 20
+		});
+		
+		var escapeHatchLabel = Ti.UI.createLabel({
+			text: 'X',
+			color: '#ccc',
+			font: [{fontSize: 12}, {fontWeight: 'bold'}],
+			right: 15
+		});
+		
+		escapeHatch.add(escapeHatchLabel);
+		
+		var carouselTableView = Ti.UI.createTableView({
+				style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
+				height: 'auto',
+				backgroundColor: '#000',
+				top: 40,
+				scrollable: true
+		});
+		
+		var banners = [];
+		
+		for(x in loadData.jsonObject){
+			for(y in loadData.jsonObject[x]){
+					var movieRows = Ti.UI.createTableViewRow({
+						color: '#FFF',
+						height: 'auto',	
+						font: {fontSize: 12}
+					});
+					
+					var bannerRows = Ti.UI.createImageView({
+						image: "images/" + loadData.jsonObject[x][y].ID + "a.jpg",
+						height: 220,
+						width: screenWidth,
+						movieID: loadData.jsonObject[x][y].ID
+					});
+					
+					movieRows.add(bannerRows);
+					//push each row into array
+					banners.push(movieRows);
+			};
+		};
+		
+		
+		
+		carouselTableView.setData(banners);
+		
+		escapeHatch.addEventListener('click', closeCarousel);
+		carouselTableView.addEventListener('click', function(event){
+					
+					var detailID = event.source.movieID;
+					
+					
+					var detailWindow = Ti.UI.createWindow({
+						backgroundColor: '#e6e7e8'
+					});
+					
+					var detailEscapeHatch = Ti.UI.createView({
+						width: screenWidth,
+						height: 35,
+						backgroundColor: '#e6e7e8',
+						top: 0
+					});
+					
+					var detailEscapeHatchLabel = Ti.UI.createLabel({
+						text: 'X',
+						color: '#000',
+						font: {fontSize: 12, fontWeight: 'bold'},
+						right: 15,
+						bottom: 1
+					});
+					
+					detailEscapeHatch.add(detailEscapeHatchLabel);
+					
+					var mainImage = Ti.UI.createImageView({
+						image: "images/" + detailID + "a.jpg",
+						height: 220,
+						width: screenWidth,
+						top: 35
+					});
+					
+					
+					var detailTitleView = Ti.UI.createView({
+						width: screenWidth,
+						height: 50,
+						backgroundColor: '#000',
+						top: 255
+					});
+					
+					
+					var detailTableView = Ti.UI.createTableView({
+							style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
+							height: 'auto',
+							backgroundColor: '#000',
+							top: 305,
+							scrollable: true
+					});
+					
+					var detailList = [];
+					
+					for(x in loadData.jsonObject){
+							for(y in loadData.jsonObject[x]){
+									
+									if(loadData.jsonObject[x][y].ID === detailID){
+											
+											var detailTitleViewLabel = Ti.UI.createLabel({
+												text: loadData.jsonObject[x][y].Title,
+												color: '#e6e7e8',
+												font: [{fontSize: 60}, {fontStyle: 'Copperplate'}],
+												align: 'center'
+											});
+											
+											detailTitleView.add(detailTitleViewLabel);
+											
+											for(z in loadData.jsonObject[x][y]){
+													if(z === 'Rated'||z === 'Genre'||z === 'Director'||z === 'Release'||z === 'Sequel'||z === 'Writer'||z === 'Starring'||z === 'Synopsis'){
+															console.log(z);
+															console.log(loadData.jsonObject[x][y][z]);
+															var detailsRows = Ti.UI.createTableViewRow({
+																color: '#e6e7e8',
+																height: 'auto',	
+																font: {fontSize: 12}
+															});
+															
+															if(z === 'Synopsis'){
+																	var detailsRowView = Ti.UI.createView({
+																		backgroundColor: '#e6e7e8',
+																		height: 'auto'
+																	});
+															}else{
+																	var detailsRowView = Ti.UI.createView({
+																		backgroundColor: '#e6e7e8',
+																		height: 45
+																	});
+															};
+															
+															var menuItem = Ti.UI.createLabel({
+																color: '#000',
+																left: 10,
+																top: 15,
+																font: {fontSize: 12},
+																width: screenWidth/2-100,
+																wordWrap: 'true',
+																text: z
+															});
+															
+															var menuData = Ti.UI.createLabel({
+																color: '#555',
+																right: 5,
+																top: 15,
+																font: {fontSize: 12},
+																width: screenWidth/2+80,
+																wordWrap: 'true',
+																text: loadData.jsonObject[x][y][z]
+															});
+															
+															detailsRowView.add(menuItem, menuData);
+															detailsRows.add(detailsRowView);
+															
+															detailList.push(detailsRows);
+													};
+													var avrRating = (Number(loadData.jsonObject[x][y].Rating1)+Number(loadData.jsonObject[x][y].Rating2))/2;
+													
+													var avrRatingView = Ti.UI.createView({
+															width: 50,
+															height: 50,
+															backgroundColor: '#7e3f98',
+															top: 0,
+															left: 0
+													});
+													
+													var avrRatingLabel = Ti.UI.createLabel({
+															text: avrRating,
+															color: '#e6e7e8',
+															font: [{fontSize: 36}, {fontWeight: 'bold'}],
+															align: 'center',
+															verticalAlign: 'center'
+													});
+													
+													avrRatingView.add(avrRatingLabel);
+													
+													var reviewsView = Ti.UI.createView({
+															width: screenWidth,
+															height: 50,
+															backgroundColor: '#7e3f98',
+															bottom: 0
+													});
+													
+													var reviewsLabel = Ti.UI.createLabel({
+															text: 'Reviews',
+															color: '#e6e7e8',
+															font: [{fontSize: 36}, {fontWeight: 'bold'}],
+															right: 10,
+															verticalAlign: 'center'
+													});
+													
+													
+													reviewsView.add(reviewsLabel, avrRatingView);
+													reviewsLabel.addEventListener('click', reviewsPage);
+													
+													
+													
+													//write reviewsPage function
+														
+													
+											};
+									};
+							};
+					};
+					detailTableView.setData(detailList);
+					
+					var closeDetail = function(){
+							detailWindow.close();
+					};
+					
+					detailEscapeHatch.addEventListener('click', closeDetail);
+					
+					detailWindow.add(detailEscapeHatch, mainImage, detailTitleView, detailTableView, reviewsView);
+					detailWindow.open();	
+			
+		});
+		
+		
+		
+		carouselWindow.add(carouselTableView, escapeHatch);
+		carouselWindow.open();
+			
+};
+
+
+
+exports.carousel = carousel;

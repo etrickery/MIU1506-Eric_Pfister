@@ -1,0 +1,183 @@
+//carousel, details, and reviews
+
+
+
+//create carousel
+var carousel = function(){
+		
+		var loadData = require('data');
+		
+		
+		var closeCarousel = function(){
+			carouselWindow.close();
+		};
+		
+		var carouselWindow = Ti.UI.createWindow({
+			backgroundColor: "#000"
+		});
+		
+		var escapeHatch = Ti.UI.createView({
+			width: screenWidth,
+			height: 15,
+			backgroundColor: 'transparent',
+			top: 20
+		});
+		
+		var escapeHatchLabel = Ti.UI.createLabel({
+			text: 'X',
+			color: '#ccc',
+			font: [{fontSize: 12}, {fontWeight: 'bold'}],
+			right: 15
+		});
+		
+		escapeHatch.add(escapeHatchLabel);
+		
+		var carouselTableView = Ti.UI.createTableView({
+				style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
+				height: 'auto',
+				backgroundColor: '#000',
+				top: 40,
+				scrollable: true
+		});
+		
+		var banners = [];
+		
+		for(x in loadData.jsonObject){
+			for(y in loadData.jsonObject[x]){
+					var movieRows = Ti.UI.createTableViewRow({
+						color: '#FFF',
+						height: 'auto',	
+						font: {fontSize: 12}
+					});
+					
+					var bannerRows = Ti.UI.createImageView({
+						image: "images/" + loadData.jsonObject[x][y].ID + "a.jpg",
+						height: 220,
+						width: screenWidth,
+						movieID: loadData.jsonObject[x][y].ID
+					});
+					
+					movieRows.add(bannerRows);
+					//push each row into array
+					banners.push(movieRows);
+			};
+		};
+		
+		
+		
+		carouselTableView.setData(banners);
+		
+		escapeHatch.addEventListener('click', closeCarousel);
+		carouselTableView.addEventListener('click', function(event){
+					
+					var detailID = event.source.movieID;
+					console.log(detailID);
+					
+					var detailWindow = Ti.UI.createWindow({
+						backgroundColor: '#e6e7e8'
+					});
+					
+					var detailEscapeHatch = Ti.UI.createView({
+						width: screenWidth,
+						height: 35,
+						backgroundColor: '#e6e7e8',
+						top: 0
+					});
+					
+					var detailEscapeHatchLabel = Ti.UI.createLabel({
+						text: 'X',
+						color: '#000',
+						font: [{fontSize: 12}, {fontWeight: 'bold'}],
+						right: 15,
+						bottom: 1
+					});
+					
+					detailEscapeHatch.add(detailEscapeHatchLabel);
+					
+					var mainImage = Ti.UI.createImageView({
+						image: "images/" + detailID + "a.jpg",
+						height: 220,
+						width: screenWidth,
+						top: 35
+					});
+					
+					
+					var detailTitleView = Ti.UI.createView({
+						width: screenWidth,
+						height: 50,
+						backgroundColor: '#7e3f98',
+						top: 255
+					});
+					
+					
+					var detailTableView = Ti.UI.createTableView({
+							style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
+							height: 'auto',
+							backgroundColor: '#000',
+							top: 305,
+							scrollable: true
+					});
+					
+					
+					for(x in loadData.jsonObject){
+							for(y in loadData.jsonObject[x]){
+									//console.log(loadData.jsonObject[x][y]); //list of catagories
+									if(loadData.jsonObject[x][y].ID === detailID){
+											var detailTitleViewLabel = Ti.UI.createLabel({
+												text: loadData.jsonObject[x][y].Title,
+												color: '#e6e7e8',
+												font: [{fontSize: 48}, {fontWeight: 'bold'}],
+												align: 'center'
+											});
+											detailTitleView.add(detailTitleViewLabel);
+											
+											for(i=0; i<19; i++){
+													console.log(loadData.jsonObject[x][y][i]);
+													/*
+													var movieRows = Ti.UI.createTableViewRow({
+														color: '#FFF',
+														height: 'auto',	
+														font: {fontSize: 12}
+													});
+													
+													console.log("title " + loadData.jsonObject[x][y].Title);  //individual answers
+													for(z in loadData.jsonObject[x][y]){
+														//console.log(loadData.jsonObject[x][y][z]);
+													};
+													*/
+											};
+									};
+							
+							};	
+					};
+					
+					var closeDetail = function(){
+							detailWindow.close();
+					};
+					
+					
+					var reviewsView = Ti.UI.createView({
+						width: screenWidth,
+						height: 50,
+						backgroundColor: '#7e3f98',
+						bottom: 0
+					});
+					
+					
+					detailEscapeHatch.addEventListener('click', closeDetail);
+					
+					detailWindow.add(detailEscapeHatch, mainImage, detailTitleView, detailTableView, reviewsView);
+					detailWindow.open();	
+			
+		});
+		
+		
+		
+		carouselWindow.add(carouselTableView, escapeHatch);
+		carouselWindow.open();
+			
+};
+
+
+
+exports.carousel = carousel;

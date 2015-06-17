@@ -1,0 +1,54 @@
+//carousel, details, and reviews
+
+
+
+//create carousel
+var carousel = function(){
+		
+		var loadData = require('data');
+		
+		var carouselWindow = Ti.UI.createWindow({
+			backgroundColor: "#000"
+		});
+		
+		var carouselTableView = Ti.UI.createTableView({
+				style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
+				height: 'auto',
+				backgroundColor: '#000',
+				top: 30,
+				scrollable: true
+		});
+		
+		var banners = [];
+		
+		for(x in loadData.jsonObject){
+			for(y in loadData.jsonObject[x]){
+				console.log(loadData.jsonObject[x][y].ID);
+					var movieRows = Ti.UI.createTableViewRow({
+						color: '#FFF',
+						title: loadData.jsonObject[x][y].Title,
+						height: 'auto',	
+						font: {fontSize: 12},
+					});
+					
+					var bannerRows = Ti.UI.createImageView({
+						image: "images/" + loadData.jsonObject[x][y].ID + "a.jpg",
+						height: 220,
+						width: screenWidth
+					});
+					
+					movieRows.add(bannerRows);
+					//push each row into array
+					banners.push(movieRows);
+			};
+		};
+		
+		carouselTableView.setData(banners);
+		
+		carouselWindow.add(carouselTableView);
+		carouselWindow.open();
+			
+};
+
+
+exports.carousel = carousel;

@@ -1,0 +1,14 @@
+
+var openDetails = function(){
+		
+	var useData = require('data');
+	
+	
+		
+		
+};
+
+
+
+
+exports.openDetails = openDetails;

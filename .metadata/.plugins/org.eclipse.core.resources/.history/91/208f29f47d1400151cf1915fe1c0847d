@@ -1,0 +1,82 @@
+//carousel, details, and reviews
+
+
+
+//create carousel
+var carousel = function(){
+		
+		var loadData = require('data');
+		
+		var closeCarousel = function(){
+			carouselWindow.close();
+		};
+		
+		var carouselWindow = Ti.UI.createWindow({
+			backgroundColor: "#000"
+		});
+		
+		var escapeHatch = Ti.UI.createView({
+			width: screenWidth,
+			height: 15,
+			backgroundColor: 'transparent',
+			top: 20
+		});
+		
+		var escapeHatchLabel = Ti.UI.createLabel({
+			text: 'X',
+			color: '#ccc',
+			font: [{fontSize: 12}, {fontWeight: 'bold'}],
+			right: 15
+		});
+		
+		escapeHatch.add(escapeHatchLabel);
+		
+		var carouselTableView = Ti.UI.createTableView({
+				style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
+				height: 'auto',
+				backgroundColor: '#000',
+				top: 40,
+				scrollable: true
+		});
+		
+		var banners = [];
+		
+		for(x in loadData.jsonObject){
+			for(y in loadData.jsonObject[x]){
+					var movieRows = Ti.UI.createTableViewRow({
+						color: '#FFF',
+						height: 'auto',	
+						font: {fontSize: 12},
+						movieID: loadData.jsonObject[x][y].ID
+					});
+					
+					var bannerRows = Ti.UI.createImageView({
+						image: "images/" + loadData.jsonObject[x][y].ID + "a.jpg",
+						height: 220,
+						width: screenWidth
+					});
+					
+					movieRows.add(bannerRows);
+					//push each row into array
+					banners.push(movieRows);
+			};
+		};
+		
+		
+		
+		carouselTableView.setData(banners);
+		
+		escapeHatch.addEventListener('click', closeCarousel);
+		carouselTableView.addEventListener('click', function(event){
+			console.log(event.source.movieID);
+		});
+		
+		
+		
+		carouselWindow.add(carouselTableView, escapeHatch);
+		carouselWindow.open();
+			
+};
+
+
+exports.carousel = carousel;

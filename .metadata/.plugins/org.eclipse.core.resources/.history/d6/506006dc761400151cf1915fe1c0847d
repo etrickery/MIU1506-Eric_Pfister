@@ -1,0 +1,28 @@
+//carousel, details, and reviews
+
+
+
+//create carousel
+var carousel = function(){
+		
+		var loadData = require('data');
+		
+		var carouselWindow = Ti.UI.createWindow({
+			backgroundColor: "#e6e7e8"
+		});
+		
+		var carouselView = Ti.UI.createView({
+			
+		});
+		
+		for(x in loadData.jsonObject[0]){
+			console.log(loadData.jsonObject[0][x]);
+		};
+		
+		carouselWindow.add(carouselView);
+		carouselWindow.open();
+			
+};
+
+
+exports.carousel = carousel;

@@ -1,0 +1,23 @@
+
+var openDetails = function(movieID){
+		
+	var useData = require('data');
+	
+	var detailWindow = Ti.UI.createWindow({
+		backgroundColor: '#e6e7e8'
+	});
+	
+	var imageView = Ti.UI.createView({
+	
+	});
+	
+	
+	detailWindow.open();
+		
+		
+};
+
+
+
+
+exports.openDetails = openDetails;
