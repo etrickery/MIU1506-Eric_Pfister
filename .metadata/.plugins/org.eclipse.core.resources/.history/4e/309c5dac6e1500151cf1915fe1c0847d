@@ -100,7 +100,6 @@ var carousel = function(){
 		
 		//event listener to open detail page
 		carouselTableView.addEventListener('click', function(event){
-					console.log(event.source.movieID);
 					
 					//keep track of where we are
 					var detailID = event.source.movieID;
@@ -145,16 +144,6 @@ var carousel = function(){
 						top: 255
 					});
 					
-					//build titleViewBorder
-					var detailTitleViewBorder = Ti.UI.createView({
-						width: screenWidth,
-						height: 20,
-						backgroundColor: '#e6e7e8',
-						top: 0,
-					});
-					
-					detailTitleView.add(detailTitleViewBorder);
-					
 					//table to hold movie details
 					var detailTableView = Ti.UI.createTableView({
 							style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
@@ -179,9 +168,8 @@ var carousel = function(){
 											var detailTitleViewLabel = Ti.UI.createLabel({
 												text: loadData.jsonObject[x][y].Title,
 												color: '#e6e7e8',
-												font: {fontSize: 30, fontFamily: "Copperplate-bold"},
-												align: 'center',
-												bottom: 22
+												font: {fontSize: 36, fontFamily: "Copperplate-bold"},
+												align: 'center'
 											});
 											
 											//insert title label into title view

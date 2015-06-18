@@ -181,7 +181,7 @@ var carousel = function(){
 												color: '#e6e7e8',
 												font: {fontSize: 30, fontFamily: "Copperplate-bold"},
 												align: 'center',
-												bottom: 22
+												bottom: 20
 											});
 											
 											//insert title label into title view

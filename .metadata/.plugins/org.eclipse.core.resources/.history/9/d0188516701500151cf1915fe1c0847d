@@ -179,9 +179,9 @@ var carousel = function(){
 											var detailTitleViewLabel = Ti.UI.createLabel({
 												text: loadData.jsonObject[x][y].Title,
 												color: '#e6e7e8',
-												font: {fontSize: 30, fontFamily: "Copperplate-bold"},
+												font: {fontSize: 36, fontFamily: "Copperplate-bold"},
 												align: 'center',
-												bottom: 22
+												bottom: 20
 											});
 											
 											//insert title label into title view

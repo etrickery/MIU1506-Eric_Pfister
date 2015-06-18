@@ -12,7 +12,7 @@ var imageCollection = imageCollectionFolder.getDirectoryListing();
 var screenWidth = Ti.Platform.displayCaps.platformWidth;
 var screenHeight = Ti.Platform.displayCaps.platformHeight;
 var selectedMovie = 20200;
-var numMovies = 6;
+var numMovies = 7;
 
 
 //load content page

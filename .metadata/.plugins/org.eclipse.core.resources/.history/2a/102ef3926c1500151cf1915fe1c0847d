@@ -100,7 +100,6 @@ var carousel = function(){
 		
 		//event listener to open detail page
 		carouselTableView.addEventListener('click', function(event){
-					console.log(event.source.movieID);
 					
 					//keep track of where we are
 					var detailID = event.source.movieID;
@@ -145,16 +144,6 @@ var carousel = function(){
 						top: 255
 					});
 					
-					//build titleViewBorder
-					var detailTitleViewBorder = Ti.UI.createView({
-						width: screenWidth,
-						height: 20,
-						backgroundColor: '#e6e7e8',
-						top: 0,
-					});
-					
-					detailTitleView.add(detailTitleViewBorder);
-					
 					//table to hold movie details
 					var detailTableView = Ti.UI.createTableView({
 							style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
@@ -179,9 +168,8 @@ var carousel = function(){
 											var detailTitleViewLabel = Ti.UI.createLabel({
 												text: loadData.jsonObject[x][y].Title,
 												color: '#e6e7e8',
-												font: {fontSize: 30, fontFamily: "Copperplate-bold"},
-												align: 'center',
-												bottom: 22
+												font: {fontSize: 36, fontFamily: "Copperplate-bold"},
+												align: 'center'
 											});
 											
 											//insert title label into title view
@@ -333,15 +321,14 @@ var carousel = function(){
 																										width: screenWidth,
 																										height: 300,
 																										backgroundColor: '#e6e7e8',
-																										top: 5,
-																										scrollable: 'true'
+																										top: 5
 																								});
 																								
 																								//add review #1 score
 																								var ratingScoreOne = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Rating1,
 																										color: '#000',
-																										font: {fontSize: 14, fontFamily: 'helvetica'},
+																										font: {fontSize: 20, fontFamily: 'helvetica', fontWeight: 'bold'},
 																										right: 15,
 																										top: 1
 																								});
@@ -350,7 +337,7 @@ var carousel = function(){
 																								var ratingAuthorOne = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Author1,
 																										color: '#000',
-																										font: {fontSize: 14, fontFamily: 'Helvetica-Bold'},
+																										font: {fontSize: 12, fontFamily: 'helvetica', fontWeight: 'bold'},
 																										left: 15,
 																										top: 1
 																								});
@@ -359,7 +346,7 @@ var carousel = function(){
 																								var ratingDateOne = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Date1,
 																										color: '#000',
-																										font: {fontSize: 14, fontFamily: 'Helvetica'},
+																										font: {fontSize: 12, fontFamily: 'helvetica', fontWeight: 'bold'},
 																										right: 15,
 																										top: 15
 																								});
@@ -368,7 +355,7 @@ var carousel = function(){
 																								var ratingReviewOne = Ti.UI.createLabel({
 																										text: "\"" + loadData.jsonObject[d][e].Review1 + "\"",
 																										color: '#000',
-																										font: {fontSize: 14, fontFamily: 'helvetica'},
+																										font: {fontSize: 12, fontFamily: 'helvetica'},
 																										left: 15,
 																										top: 30,
 																										width: screenWidth - 30,
@@ -385,15 +372,14 @@ var carousel = function(){
 																										width: screenWidth,
 																										height: 300,
 																										backgroundColor: '#e6e7e8',
-																										top: 310,
-																										scrollable: 'true'
+																										top: 310
 																								});
 																								
 																								//add review #2 rating
 																								var ratingScoreTwo = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Rating2,
 																										color: '#000',
-																										font: {fontSize: 14, fontFamily: 'Helvetica-Bold'},
+																										font: {fontSize: 12, fontFamily: 'helvetica', fontWeight: 'bold'},
 																										right: 15,
 																										top: 1
 																								});
@@ -402,7 +388,7 @@ var carousel = function(){
 																								var ratingAuthorTwo = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Author2,
 																										color: '#000',
-																										font: {fontSize: 14, fontFamily: 'Helvetica-Bold'},
+																										font: {fontSize: 12, fontFamily: 'helvetica', fontWeight: 'bold'},
 																										left: 15,
 																										top: 1
 																								});
@@ -411,7 +397,7 @@ var carousel = function(){
 																								var ratingDateTwo = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Date2,
 																										color: '#000',
-																										font: {fontSize: 14, fontFamily: 'Helvetica-Bold'},
+																										font: {fontSize: 12, fontFamily: 'helvetica', fontWeight: 'bold'},
 																										right: 15,
 																										top: 15
 																								});
@@ -420,7 +406,7 @@ var carousel = function(){
 																								var ratingReviewTwo = Ti.UI.createLabel({
 																										text: "\"" + loadData.jsonObject[d][e].Review2 + "\"",
 																										color: '#000',
-																										font: {fontSize: 14, fontFamily: 'helvetica'},
+																										font: {fontSize: 12, fontFamily: 'helvetica'},
 																										left: 15,
 																										top: 30,
 																										width: screenWidth - 30,
