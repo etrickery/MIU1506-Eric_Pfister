@@ -1,55 +1,69 @@
 //carousel, details, and reviews
 
-
-
 //create carousel
 var carousel = function(){
 		
+		//require data page which contains jsonobject
 		var loadData = require('data');
 		
-		
+		//function to close carousel page, returning to home screen
 		var closeCarousel = function(){
-			carouselWindow.close();
+			carouselWindow.close({});
 		};
 		
+		//carousel main window
 		var carouselWindow = Ti.UI.createWindow({
-			backgroundColor: "#000"
+			backgroundColor: "#e6e7e8"
 		});
 		
+		//escape hatch
 		var escapeHatch = Ti.UI.createView({
 			width: screenWidth,
-			height: 15,
-			backgroundColor: 'transparent',
-			top: 20
+			height: 45,
+			backgroundColor: '#e6e7e8',
+			top: 0
 		});
 		
 		var escapeHatchLabel = Ti.UI.createLabel({
 			text: 'X',
-			color: '#ccc',
-			font: [{fontSize: 12}, {fontWeight: 'bold'}],
-			right: 15
+			color: '#888',
+			font: {fontSize: 18, fontFamily: "Copperplate-bold"},
+			right: 15,
+			bottom: 5
 		});
 		
 		escapeHatch.add(escapeHatchLabel);
 		
+		//table to display movies
 		var carouselTableView = Ti.UI.createTableView({
 				style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
 				height: 'auto',
 				backgroundColor: '#000',
-				top: 40,
+				top: 0,
 				scrollable: true
 		});
 		
+		//array to contain movies
 		var banners = [];
 		
+		//access json to build out table
 		for(x in loadData.jsonObject){
 			for(y in loadData.jsonObject[x]){
+					//layout each row
 					var movieRows = Ti.UI.createTableViewRow({
 						color: '#FFF',
 						height: 'auto',	
-						font: {fontSize: 12}
+						font: {fontSize: 12, fontFamily: "Helvetica"},
 					});
 					
+					//create a view to house image and title
+					var bannerRowViews = Ti.UI.createView({
+						height: 220,
+						width: screenWidth,
+						
+					});
+					
+					//create image to use in row
 					var bannerRows = Ti.UI.createImageView({
 						image: "images/" + loadData.jsonObject[x][y].ID + "a.jpg",
 						height: 220,
@@ -57,104 +71,137 @@ var carousel = function(){
 						movieID: loadData.jsonObject[x][y].ID
 					});
 					
-					movieRows.add(bannerRows);
+					//title
+					var bannerLabel = Ti.UI.createLabel({
+						right: 5,
+						bottom: 5,
+						color: "#e6e7e8",
+						shadowColor: '#000',
+						shadowOffset: {x: 2, y: 2},
+						shadowRadius: 2,
+						text: loadData.jsonObject[x][y].Title,
+						font: {fontSize: 30, fontFamily: "Arial", fontWeight: "Bold"},
+					});
+					
+					bannerRowViews.add(bannerRows, bannerLabel);
+					//insert image into row
+					movieRows.add(bannerRowViews);
 					//push each row into array
 					banners.push(movieRows);
 			};
 		};
 		
 		
-		
+		//push array into table
 		carouselTableView.setData(banners);
 		
+		//event listener to close carousel page
 		escapeHatch.addEventListener('click', closeCarousel);
+		
+		//event listener to open detail page
 		carouselTableView.addEventListener('click', function(event){
 					
+					//keep track of where we are
 					var detailID = event.source.movieID;
 					
-					
+					//create detail window
 					var detailWindow = Ti.UI.createWindow({
 						backgroundColor: '#e6e7e8'
 					});
 					
+					//detail page escape hatch
 					var detailEscapeHatch = Ti.UI.createView({
 						width: screenWidth,
-						height: 35,
+						height: 45,
 						backgroundColor: '#e6e7e8',
 						top: 0
 					});
 					
+					
 					var detailEscapeHatchLabel = Ti.UI.createLabel({
 						text: 'X',
-						color: '#000',
-						font: {fontSize: 12, fontWeight: 'bold'},
+						color: '#888',
+						font: {fontSize: 18, fontFamily: "Copperplate-bold"},
 						right: 15,
 						bottom: 1
 					});
 					
 					detailEscapeHatch.add(detailEscapeHatchLabel);
 					
+					//main image for detail page
 					var mainImage = Ti.UI.createImageView({
 						image: "images/" + detailID + "a.jpg",
 						height: 220,
 						width: screenWidth,
-						top: 35
+						top: 45
 					});
 					
-					
+					//view to hold title of movie
 					var detailTitleView = Ti.UI.createView({
 						width: screenWidth,
-						height: 50,
+						height: 80,
 						backgroundColor: '#000',
 						top: 255
 					});
 					
-					
+					//table to hold movie details
 					var detailTableView = Ti.UI.createTableView({
 							style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
 							height: 'auto',
 							backgroundColor: '#000',
 							top: 305,
-							scrollable: true
+							scrollable: true,
+							headerTitle: null,
+							separatorStyle : Titanium.UI.iPhone.TableViewSeparatorStyle.NONE,
+							footerTitle: null,
 					});
 					
+					//array to hold details
 					var detailList = [];
 					
+					//access jsonData
 					for(x in loadData.jsonObject){
 							for(y in loadData.jsonObject[x]){
-									
 									if(loadData.jsonObject[x][y].ID === detailID){
 											
+											//create title label to place within title view
 											var detailTitleViewLabel = Ti.UI.createLabel({
 												text: loadData.jsonObject[x][y].Title,
 												color: '#e6e7e8',
-												font: [{fontSize: 60}, {fontStyle: 'Copperplate'}],
+												font: {fontSize: 36, fontFamily: "Copperplate-bold"},
 												align: 'center'
 											});
 											
+											//insert title label into title view
 											detailTitleView.add(detailTitleViewLabel);
 											
+											//fill rows for detail table using json object
 											for(z in loadData.jsonObject[x][y]){
 													if(z === 'Rated'||z === 'Genre'||z === 'Director'||z === 'Release'||z === 'Sequel'||z === 'Writer'||z === 'Starring'||z === 'Synopsis'){
 															
+															//rows to house details
 															var detailsRows = Ti.UI.createTableViewRow({
 																color: '#e6e7e8',
 																height: 'auto',	
 																font: {fontSize: 12}
 															});
 															
+															//for synopsis, set to larger view
 															if(z === 'Synopsis'){
 																	var detailsRowView = Ti.UI.createView({
 																		backgroundColor: '#e6e7e8',
 																		height: 'auto'
 																	});
 															}else{
+																	
+																	//for all others, set to 45 pixel high rows
 																	var detailsRowView = Ti.UI.createView({
 																		backgroundColor: '#e6e7e8',
 																		height: 45
 																	});
 															};
 															
+															//list labels (align to the right)
 															var menuItem = Ti.UI.createLabel({
 																color: '#000',
 																left: 10,
@@ -165,6 +212,7 @@ var carousel = function(){
 																text: z
 															});
 															
+															//list data (align to the left)
 															var menuData = Ti.UI.createLabel({
 																color: '#555',
 																right: 5,
@@ -175,13 +223,18 @@ var carousel = function(){
 																text: loadData.jsonObject[x][y][z]
 															});
 															
+															//build list
 															detailsRowView.add(menuItem, menuData);
 															detailsRows.add(detailsRowView);
 															
+															//push list to table
 															detailList.push(detailsRows);
 													};
+													
+													//calculate average rating from reviews
 													var avrRating = (Number(loadData.jsonObject[x][y].Rating1)+Number(loadData.jsonObject[x][y].Rating2))/2;
 													
+													//create ratings view to house average rating
 													var avrRatingView = Ti.UI.createView({
 															width: 50,
 															height: 50,
@@ -190,16 +243,19 @@ var carousel = function(){
 															left: 0
 													});
 													
+													//label to show average rating
 													var avrRatingLabel = Ti.UI.createLabel({
 															text: avrRating,
 															color: '#e6e7e8',
-															font: [{fontSize: 36}, {fontWeight: 'bold'}],
+															font: {fontSize: 20, fontWeight: 'bold'},
 															align: 'center',
 															verticalAlign: 'center'
 													});
 													
+													//add label to view
 													avrRatingView.add(avrRatingLabel);
 													
+													//lower bar to house ratings view
 													var reviewsView = Ti.UI.createView({
 															width: screenWidth,
 															height: 50,
@@ -207,25 +263,27 @@ var carousel = function(){
 															bottom: 0
 													});
 													
+													//Reviews label
 													var reviewsLabel = Ti.UI.createLabel({
-															text: 'Reviews',
+															text: 'Reviews >>',
 															color: '#e6e7e8',
-															font: [{fontSize: 36}, {fontWeight: 'bold'}],
+															font: {fontSize: 20, fontWeight: 'bold'},
 															right: 10,
 															verticalAlign: 'center'
 													});
 													
-													
-													
-													
-													
+													//add parts to reviews view
 													reviewsView.add(reviewsLabel, avrRatingView);
+													
+													//event listener to launch review page
 													reviewsLabel.addEventListener('click', function(reviewEvent){
 																
+																//create review window
 																var reviewWindow = Ti.UI.createWindow({
 																	backgroundColor: '#000'
 																});
 																
+																//review window escape hatch
 																var reviewEscapeHatch = Ti.UI.createView({
 																	width: screenWidth,
 																	height: 35,
@@ -243,6 +301,7 @@ var carousel = function(){
 																
 																reviewEscapeHatch.add(reviewEscapeHatchLabel);
 																
+																//view to house reviews
 																var reviewView = Ti.UI.createView({
 																	width: screenWidth,
 																	height: screenHeight - 35,
@@ -251,11 +310,13 @@ var carousel = function(){
 																	scrollable: 'true'
 																});
 																
+																//access json object to locate reviews
 																for(d in loadData.jsonObject){
 																		for(e in loadData.jsonObject[d]){
 																			if(loadData.jsonObject[d][e].ID === detailID){
 																				for(f in loadData.jsonObject[d][e]){
 																						if(f === 'Rating1'){
+																								//build review #1
 																								var ratingOne = Ti.UI.createView({
 																										width: screenWidth,
 																										height: 300,
@@ -263,6 +324,7 @@ var carousel = function(){
 																										top: 5
 																								});
 																								
+																								//add review #1 score
 																								var ratingScoreOne = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Rating1,
 																										color: '#000',
@@ -271,6 +333,7 @@ var carousel = function(){
 																										top: 1
 																								});
 																								
+																								//add review #1 author
 																								var ratingAuthorOne = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Author1,
 																										color: '#000',
@@ -279,6 +342,7 @@ var carousel = function(){
 																										top: 1
 																								});
 																								
+																								//add review #1 date
 																								var ratingDateOne = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Date1,
 																										color: '#000',
@@ -287,6 +351,7 @@ var carousel = function(){
 																										top: 15
 																								});
 																								
+																								//add review #1 rating
 																								var ratingReviewOne = Ti.UI.createLabel({
 																										text: "\"" + loadData.jsonObject[d][e].Review1 + "\"",
 																										color: '#000',
@@ -297,10 +362,12 @@ var carousel = function(){
 																										wordWrap: 'true'
 																								});
 																								
+																								//load review #1 to view
 																								ratingOne.add(ratingScoreOne, ratingAuthorOne, ratingDateOne, ratingReviewOne);
 																								reviewView.add(ratingOne);
 																								
 																						}else if(f === 'Rating2'){
+																								//build rating #2
 																								var ratingTwo = Ti.UI.createView({
 																										width: screenWidth,
 																										height: 300,
@@ -308,6 +375,7 @@ var carousel = function(){
 																										top: 310
 																								});
 																								
+																								//add review #2 rating
 																								var ratingScoreTwo = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Rating2,
 																										color: '#000',
@@ -316,6 +384,7 @@ var carousel = function(){
 																										top: 1
 																								});
 																								
+																								//add review #2 author
 																								var ratingAuthorTwo = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Author2,
 																										color: '#000',
@@ -324,6 +393,7 @@ var carousel = function(){
 																										top: 1
 																								});
 																								
+																								//add review #2 rating
 																								var ratingDateTwo = Ti.UI.createLabel({
 																										text: loadData.jsonObject[d][e].Date2,
 																										color: '#000',
@@ -332,6 +402,7 @@ var carousel = function(){
 																										top: 15
 																								});
 																								
+																								//add review #2 rating
 																								var ratingReviewTwo = Ti.UI.createLabel({
 																										text: "\"" + loadData.jsonObject[d][e].Review2 + "\"",
 																										color: '#000',
@@ -342,24 +413,21 @@ var carousel = function(){
 																										wordWrap: 'true'
 																								});
 																								
+																								//add review #2 to view
 																								ratingTwo.add(ratingScoreTwo, ratingAuthorTwo, ratingDateTwo, ratingReviewTwo);
 																								reviewView.add(ratingTwo);
-																								
 																						};
-																						
 																				};
 																			};	
 																		};
 																};
 																
-																
-																console.log(detailID);
-																
+																//close review function
 																var closeReviews = function(){
 																	reviewWindow.close();
 																};
 																
-																
+																//event listener to close review window
 																reviewEscapeHatchLabel.addEventListener('click', closeReviews);
 																reviewWindow.add(reviewEscapeHatch, reviewView);
 																reviewWindow.open();
@@ -375,26 +443,29 @@ var carousel = function(){
 									};
 							};
 					};
+					
+					//add data to detailTableView
 					detailTableView.setData(detailList);
 					
+					//close detail function
 					var closeDetail = function(){
 							detailWindow.close();
 					};
 					
+					//event listener to close detail function
 					detailEscapeHatch.addEventListener('click', closeDetail);
 					
+					//fill detail window
 					detailWindow.add(detailEscapeHatch, mainImage, detailTitleView, detailTableView, reviewsView);
 					detailWindow.open();	
 			
 		});
 		
-		
-		
+		//fill carousel window
 		carouselWindow.add(carouselTableView, escapeHatch);
 		carouselWindow.open();
-			
 };
 
 
-
+//export carousel
 exports.carousel = carousel;

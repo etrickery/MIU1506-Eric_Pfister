@@ -12,7 +12,7 @@ var imageCollection = imageCollectionFolder.getDirectoryListing();
 var screenWidth = Ti.Platform.displayCaps.platformWidth;
 var screenHeight = Ti.Platform.displayCaps.platformHeight;
 var selectedMovie = 20200;
-var numMovies = 5;
+var numMovies = 7;
 
 
 //load content page
@@ -37,6 +37,9 @@ var titleView = Ti.UI.createView({
 //create title
 var titleLabel = Ti.UI.createLabel({
 	text: 'MOVINFO',
+	shadowColor: '#000',
+	shadowOffset: {x: 2, y: 2},
+	shadowRadius: 2,
 	color: '#FFF',
 	font: {fontSize: 48, fontFamily: "Copperplate-bold"},
 	bottom: '20%',

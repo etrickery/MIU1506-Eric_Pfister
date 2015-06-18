@@ -3,7 +3,7 @@ var jsonObject = {
 					"Movies": [
 									{
 										"ID": "20200",
-										"Title": "Night Watch (Nochnoy Dozor)",
+										"Title": "Night Watch",
 										"Release": "March 3rd, 2006 (US)",
 										"Rated": "R",
 										"Length": "114 minutes",
@@ -105,6 +105,27 @@ var jsonObject = {
 										"Author2": "Daniel Elford (from UK)",
 										"Date2": "January 1st, 2011",
 										"Review2": "Forget M. Night Shyamalan with his plot holes and fall-apart final acts, this film has, unarguably, the most well-executed finale of this sort, at least of the 90s! Great writing, shuffling time frame to keep you on your feet, details and full scenes that see completely different the second time you see it, and brilliantly played from top to bottom, this is Film Noir at its best! The fact Bryan Singer was a young first-time director makes the whole thing all the more incredible to watch; you simply can't believe this is the product of a crew healmed by somebody so supposedly inexperienced. In his own words, perhaps if he tried to make this now, he wouldn't be able to......so I say, thanks goodness it came to him when it did! To say anything else would be to spoil the experience....just see it!"
+									},
+									{
+										"ID": "20205",
+										"Title": "Fido",
+										"Release": "March 16th, 2007",
+										"Rated": "R",
+										"Length": "93 minutes",
+										"Genre": "Comedy, Drama, Horror",
+										"Director": "Andrew Currie",
+										"Writer": "Christopher McQuarrie",
+										"Starring": "Robert Chomiak, Andrew Currie",
+										"Sequel": "",
+										"Synopsis": "In an Earthly world resembling the 1950s, a cloud of space radiation has shrouded the planet, resulting in the dead becoming zombies that desire live human flesh. A company called Zomcon has been able to control the zombie population. Zombies can be temporarily neutralized by being shot, but can only be permanently neutralized by their brain being destroyed. Their ultimate disposal is through cremation, or burial, the latter which requires decapitation with the head being buried separately from the body. Conversely, Zomcon has created the domestication collar, when activated and placed on a zombie makes the zombie controllable and thus an eternally productive creature within society. Because all dead initially become zombies, the elderly are viewed negatively and suspectly. And all people, adult or child, learn to shoot to kill to protect society. Zomcon is the go to organization for all things zombie. In the town of Willard, the Robinsons - father Bill, mother Helen, and adolescent son Timmy - are one family who don't own a zombie as a domestic since Bill is afraid of zombies, as, when he was a child, he had to shoot his own zombie father, who tried to eat him. Bill has thus become fascinated with funerals to see zombies put away permanently. But Helen feels pressured to get a zombie when Zomcon's new head of security in Willard, the officious Jonathan Bottoms, moves into the neighborhood with his family. Never having had to deal with a zombie directly, Timmy is initially wary of their zombie. But as a lonely child who has no friends and is often bullied, Timmy eventually befriends their zombie, who he names Fido, as he treats the zombie much like a faithful pet dog. Timmy protects Fido at all cost, even after Fido, due to no fault of its own, is implicated in some deaths, which creates a mini-wave of loose zombies unknown to Zomcon. But Fido may play a larger role within the family as a companion for Helen, who is largely neglected by Bill, since he sees human affection as ultimately resulting in such difficult issues as what happened between him and his own father. With Timmy and Helen treating Fido with kindness, Fido, in turn, may prove that not all zombies, even when without their domestication collar, are out to kill anyone and everyone in their path. ",
+										"Rating1": "9",
+										"Author1": "Dan Alderson (from UK)",
+										"Date1": "June 4th, 2007",
+										"Review1": "At a risk of sounding slightly sacrilegious, on first viewing I'm kind of inclined to put this right up on a par with 'Shaun of the Dead'. Now, given I view Simon Pegg as an unquestionable comedy genius, I realise this is a rather big claim. And to what extent you agree with that last statement may be a good preliminary gauge of whether 'Fido' will appeal to you. In a way the comedy picks up where 'Shaun' left off, except we're back in the original 1950s Living Dead-era stereotypical middle-American small town. The Zombie Wars are over and zombies themselves are becoming more well-adjusted, useful members of the community. This, so we're informed at the outset, is largely thanks to the scientific advances made by the good people at Zomcom - a nice play on romantic comedy perhaps? The beauty of the film lies in its dead-pan depiction of a respectable neighbourhood maintaining core values while making a place for zombies and the special hazards they pose. The charm and balance with which it does this is near enough perfect. Themes you might expect from a more mainstream kitsch comedy come through - the veneer of good clean living, keeping up appearances, repressed emotion, muddled parental values, social decorum and the plight of the alienated individual. It's a story told with happy heart and wide appeal that is brought to life vividly by the film's all-round strong cast. It's one of those works where it really shows through that everyone involved got a kick out of taking part. It's also fun imagining what Billy Connelly learning his script must have been like... So in conclusion, it is probable you will appreciate the humour of this film unless your father tried to eat you. ",
+										"Rating2": "10",
+										"Author2": "gpackker (from Canada)",
+										"Date2": "March 17th, 2007",
+										"Review2": "This is the first must see film I've seen in the last year! It's wickedly funny, incredibly original, unbelievably great looking (they went for this super cool wide-screen Technicolor look that's awesome to behold,) and it actually has depth in character and in what it says about society. It's really smart satire that nails everything from Homeland Security to race issues, while at the same time leaving you laughing and realizing how much are world lives in fear. Carrie Anne Moss turns in a comedic performance I never imagined would come from her! She's sweet, funny and sexy! Billy Connolly is great as Fido who can only grunt and moan! And Dylan Baker as the Dad is priceless. In fact the whole cast is perfect. Henry Czerny as the bad guy, Tim Blake Nelson as the neighbor with the hot sexy zombie girlfriend (getting the idea now?) Funny, though-provoking and just all round amazing! Go and see this movie! It's like nothing you've ever seen before."
 									}
 					
 					]
