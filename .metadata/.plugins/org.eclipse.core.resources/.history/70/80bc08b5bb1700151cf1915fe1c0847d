@@ -1,0 +1,17 @@
+
+
+Ti.UI.setBackgroundColor('#c6c8ca');
+
+var mainWindow = Ti.UI.createWindow({
+	backgroundImage: '/images/celebration01.jpg',
+	
+	
+});
+
+
+
+
+
+
+mainWindow.open();
+

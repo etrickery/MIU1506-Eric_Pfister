@@ -1,5 +1,5 @@
 
-6/18/2015, 12:12:19 AM
+6/20/2015, 9:04:13 PM
 
 Operating System
   Name                        = Mac OS X
@@ -21,7 +21,7 @@ Titanium SDK
   Target Platform             = iphone
 
 Command
-  /usr/local/bin/node /Users/ericpfister/.appcelerator/install/4.0.0/package/node_modules/appc-cli-titanium/node_modules/titanium/bin/titanium build --platform iphone --log-level trace --sdk 4.0.0.GA --project-dir /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric --target simulator --ios-version 8.3 --device-family iphone --deploy-type development --sim-type iphone --sim-version 8.3 --device-id A7B41607-C030-4725-8468-ED3DE239CF1E --skip-js-minify --no-colors --no-progress-bars --no-prompt --prompt-type socket-bundle --prompt-port 49338 --plugin-paths /Users/ericpfister/.appcelerator/install/4.0.0/package/node_modules --config-file /var/folders/1n/f4tl8gs10313gy_ltqghwsdc0000gn/T/build-1434600736741.json --no-banner
+  /usr/local/bin/node /Users/ericpfister/.appcelerator/install/4.0.0/package/node_modules/appc-cli-titanium/node_modules/titanium/bin/titanium build --platform iphone --log-level trace --sdk 4.0.0.GA --project-dir /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric --target simulator --ios-version 8.3 --device-family iphone --deploy-type development --sim-type iphone --sim-version 8.3 --device-id A7B41607-C030-4725-8468-ED3DE239CF1E --skip-js-minify --no-colors --no-progress-bars --no-prompt --prompt-type socket-bundle --prompt-port 49338 --plugin-paths /Users/ericpfister/.appcelerator/install/4.0.0/package/node_modules --config-file /var/folders/1n/f4tl8gs10313gy_ltqghwsdc0000gn/T/build-1434848650803.json --no-banner
 
 [DEBUG]  Detecting modules in /Users/ericpfister/Library/Application Support/Titanium/modules
 [DEBUG]  Detected android module: com.appcelerator.apm 1.1.1 @ /Users/ericpfister/Library/Application Support/Titanium/modules/android/com.appcelerator.apm/1.1.1
@@ -97,15 +97,15 @@ Command
 [INFO]   Processing Titanium namespace resources
 [DEBUG]  Copying /Users/ericpfister/Library/Application Support/Titanium/mobilesdk/osx/4.0.0.GA/iphone/modules/ui/images => /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app/modules/ui/images
 [INFO]   Skipping xcodebuild
-[INFO]   Finished building the application in 292ms
+[INFO]   Finished building the application in 324ms
 [INFO]   Launching iOS Simulator
-[DEBUG]  [ioslib] Removing old log file: /Users/ericpfister/Library/Developer/CoreSimulator/Devices/A7B41607-C030-4725-8468-ED3DE239CF1E/data/Containers/Data/Application/DA07E90B-47A8-4767-8A20-C02E34D8DB1D/Documents/a7ca700e-546f-4a6c-9444-0096d036aca8.log
+[DEBUG]  [ioslib] Removing old log file: /Users/ericpfister/Library/Developer/CoreSimulator/Devices/A7B41607-C030-4725-8468-ED3DE239CF1E/data/Containers/Data/Application/E7E50579-B186-49F6-9CF9-A2319267B9B6/Documents/a7ca700e-546f-4a6c-9444-0096d036aca8.log
 [DEBUG]  [ioslib] Executing: /Users/ericpfister/Library/Application Support/Titanium/mobilesdk/osx/4.0.0.GA/node_modules/ioslib/lib/ios-sim "launch" "/Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app" "--verbose" "--xcode-dir" "/Applications/Xcode.app/Contents/Developer" "--udid" "A7B41607-C030-4725-8468-ED3DE239CF1E" "--timeout" "180"
 [DEBUG]  [ioslib] Executing: osascript "/Users/ericpfister/Library/Application Support/Titanium/mobilesdk/osx/4.0.0.GA/node_modules/ioslib/lib/iphone_sim_activate.scpt" "/Applications/Xcode.app/Contents/Developer/Applications/iOS Simulator.app"
-[DEBUG]  [ioslib] [ios-sim] [DEBUG] App Spec: <DTiPhoneSimulatorApplicationSpecifier 0x7fd1d4a194c0> specified by app path /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app
-[DEBUG]  [ioslib] [ios-sim] [DEBUG] SDK Root: <DTiPhoneSimulatorSystemRoot 0x7fd1d4a1e7c0> path=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk
-[DEBUG]  [ioslib] [ios-sim] [DEBUG] Creating named pipe at `/var/folders/1n/f4tl8gs10313gy_ltqghwsdc0000gn/T//ios-sim-stderr-pipe-1434600739'
-[DEBUG]  [ioslib] [ios-sim] [DEBUG] Creating named pipe at `/var/folders/1n/f4tl8gs10313gy_ltqghwsdc0000gn/T//ios-sim-stdout-pipe-1434600739'
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] App Spec: <DTiPhoneSimulatorApplicationSpecifier 0x7fa27a11fc90> specified by app path /Users/ericpfister/Documents/fullsail/miu/MIU1506-Eric_Pfister/1506_InfoApp_Pfister_Eric/build/iphone/build/Debug-iphonesimulator/1506_InfoApp_Pfister_Eric.app
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] SDK Root: <DTiPhoneSimulatorSystemRoot 0x7fa27a12a650> path=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] Creating named pipe at `/var/folders/1n/f4tl8gs10313gy_ltqghwsdc0000gn/T//ios-sim-stderr-pipe-1434848654'
+[DEBUG]  [ioslib] [ios-sim] [DEBUG] Creating named pipe at `/var/folders/1n/f4tl8gs10313gy_ltqghwsdc0000gn/T//ios-sim-stdout-pipe-1434848654'
 [DEBUG]  [ioslib] [ios-sim] [DEBUG] using device family iphone
 [DEBUG]  [ioslib] [ios-sim] [DEBUG] Comparing 6EB0725C-4A02-41A7-B9F7-70D3F3AC9765 == A7B41607-C030-4725-8468-ED3DE239CF1E
 [DEBUG]  [ioslib] [ios-sim] [DEBUG] Comparing CCF65657-B6BF-41C7-8B1A-EB1B6832283F == A7B41607-C030-4725-8468-ED3DE239CF1E
@@ -114,5 +114,5 @@ Command
 [DEBUG]  [ioslib] [ios-sim] [DEBUG] Comparing A7B41607-C030-4725-8468-ED3DE239CF1E == A7B41607-C030-4725-8468-ED3DE239CF1E
 [DEBUG]  [ioslib] [ios-sim] [DEBUG] set device to : iPhone 6
 [DEBUG]  [ioslib] [ios-sim] [DEBUG] Session started
-[DEBUG]  [ioslib] Found application log file: /Users/ericpfister/Library/Developer/CoreSimulator/Devices/A7B41607-C030-4725-8468-ED3DE239CF1E/data/Containers/Data/Application/2B2EFB82-E7F2-4ACF-A756-EFC33213C37F/Documents/a7ca700e-546f-4a6c-9444-0096d036aca8.log
-[INFO]   Project built successfully in 4s 177ms
+[DEBUG]  [ioslib] Found application log file: /Users/ericpfister/Library/Developer/CoreSimulator/Devices/A7B41607-C030-4725-8468-ED3DE239CF1E/data/Containers/Data/Application/BC8FA79B-3D42-4D86-88FF-7AFA0004476A/Documents/a7ca700e-546f-4a6c-9444-0096d036aca8.log
+[INFO]   Project built successfully in 5s 762ms

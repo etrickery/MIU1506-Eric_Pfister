@@ -1,0 +1,28 @@
+
+
+
+var tabPage = function(){
+	var tabMenu = Ti.UI.createTabbedBar{(
+		
+	)};
+	var foodWindow = Ti.UI.createWindow({
+		
+	});
+	var dessertWindow = Ti.UI.createWindow({
+		
+	});
+	var beveragesWindow = Ti.UI.createWindow({
+		
+	});
+	var liquerWindow = Ti.UI.createWindow({
+		
+	});
+	
+	
+	
+};
+
+
+
+tabPage.exports = tabPage;
+

@@ -1,0 +1,47 @@
+
+
+Ti.UI.backgroundColor = "#c6c8ca";
+
+
+var imageCollectionFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "images");
+var imageCollection = imageCollectionFolder.getDirectoryListing();
+var screenWidth = Ti.Platform.displayCaps.platformWidth;
+var screenHeight = Ti.Platform.displayCaps.platformHeight;
+
+
+var mainWindow = Ti.UI.createWindow({
+	backgroundImage: './images/celebration01.jpg',
+});
+
+
+var titleView = Ti.UI.createView({
+	backgroundColor: '#677ba0',
+	width: screenWidth,
+	height: 60,
+	top: 80,
+});
+
+
+var titleLabel = Ti.UI.createLabel({
+	color: '#c6c8ca',
+	text: 'party fool',
+	font: {fontFamily: 'Didot-Bold', fontSize: '50'},
+	align: 'center',
+	top: 75
+});
+
+var enterButton = Ti.UI.createLabel({
+	backgroundColor: '#677ba0',
+	width: screenWidth,
+	height: 70,
+	bottom: 0,
+});
+
+
+var loadContent = require('content');
+
+
+
+mainWindow.add(titleView, titleLabel, enterButton);
+mainWindow.open();
+

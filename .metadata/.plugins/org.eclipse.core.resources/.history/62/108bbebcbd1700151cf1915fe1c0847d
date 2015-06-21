@@ -1,0 +1,38 @@
+
+
+Ti.UI.backgroundColor = "#c6c8ca";
+
+
+var imageCollectionFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "images");
+var imageCollection = imageCollectionFolder.getDirectoryListing();
+var screenWidth = Ti.Platform.displayCaps.platformWidth;
+var screenHeight = Ti.Platform.displayCaps.platformHeight;
+
+
+var mainWindow = Ti.UI.createWindow({
+	backgroundImage: './images/celebration01.jpg',
+});
+
+
+var titleView = Ti.UI.createView({
+	backgroundColor: '#677ba0',
+	width: screenWidth,
+	height: 60,
+	top: 80
+	shadowColor: '#000',
+	shadowOffset: {x: 3, y: 3},
+	shadowRadius: 3,
+});
+
+
+var titleLabel = Ti.UI.createView({
+	text: 'party fool',
+	font: [{fontFamily: 'Didot-Bold', fontSize: '30', fontColor: '#000000'}],
+	align: 'center',
+	bottom: 10
+});
+
+
+mainWindow.add(titleView, titleLabel);
+mainWindow.open();
+
