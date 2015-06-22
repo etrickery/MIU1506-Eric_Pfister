@@ -1,0 +1,78 @@
+
+
+
+var tabPage = function(){
+	//setup tab menu
+	var tabMenu = Ti.UI.createTabGroup();
+	
+	//food tab
+	var foodWindow = Ti.UI.createWindow({
+		title: 'Food',
+		backgroundColor: "#c6c8ca"
+	});
+	var foodTab = Ti.UI.createTab({
+		title: 'Food',
+		window: foodWindow,
+		icon: 'images/nav_icon.png'
+	});
+	var foodLabel = Ti.UI.createLabel({
+		text: "Food",
+		color: '#000',
+		font: {fontSize:18, fontFamily:'Cochin'},
+		textAlign: 'center',
+		width: 'auto'
+	});
+	foodWindow.add(foodLabel);
+	
+	//dessert tab
+	var dessertWindow = Ti.UI.createWindow({
+		title: 'dessert',
+		backgroundColor: "#c6c8ca"
+	});
+	var dessertTab = Ti.UI.createTab({
+		title: 'dessert',
+		window: dessertWindow,
+		icon: 'images/nav_icon.png'
+	});
+	var dessertView = Ti.UI.createView({
+		backgroundColor: '#000',
+		width: screenWidth,
+		height: 80,
+		top: 0,
+	});
+	dessertWindow.add(dessertView);
+	
+	//beverages tab
+	var beveragesWindow = Ti.UI.createWindow({
+		title: 'beverages',
+		backgroundColor: "#c6c8ca"
+	});
+	var beveragesTab = Ti.UI.createTab({
+		title: 'beverages',
+		window: beveragesWindow,
+		icon: 'images/nav_icon.png'
+	});
+	
+	//liquer tab
+	var liquerWindow = Ti.UI.createWindow({
+		title: 'liquer',
+		backgroundColor: "#c6c8ca"
+	});
+	var liquerTab = Ti.UI.createTab({
+		title: 'liquer',
+		window: liquerWindow,
+		icon: 'images/nav_icon.png'
+	});
+	
+	//add tabs to menu
+	tabMenu.add(foodTab, dessertTab, beveragesTab, liquerTab);
+	
+	
+	tabMenu.open();
+	
+};
+
+
+
+exports.tabPage = tabPage;
+

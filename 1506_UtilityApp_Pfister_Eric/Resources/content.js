@@ -2,10 +2,7 @@
 
 
 var tabPage = function(){
-	console.log('opened');
-	//setup tab menu
-	var tabMenu = Ti.UI.createTabGroup({
-	});
+	console.log('running');
 	
 	//food tab
 	var foodWindow = Ti.UI.createWindow({
@@ -13,17 +10,18 @@ var tabPage = function(){
 		backgroundColor: "#c6c8ca"
 	});
 	var foodTab = Ti.UI.createTab({
-		title: 'Food',
-		window: foodWindow
+		title: 'FOOD',
+		window: foodWindow,
 	});
-	var foodView = Ti.UI.createView({
-		backgroundColor: '#000',
-		width: screenWidth,
-		height: 60,
-		bottom: 80,
+	var foodLabel = Ti.UI.createLabel({
+		text: "Food",
+		color: '#000',
+		font: {fontSize: '24', fontFamily:'Cochin'},
+		textAlign: 'center',
+		width: 'auto'
 	});
+	foodWindow.add(foodLabel);
 	
-	foodWindow.add(foodView);
 	
 	//dessert tab
 	var dessertWindow = Ti.UI.createWindow({
@@ -31,9 +29,18 @@ var tabPage = function(){
 		backgroundColor: "#c6c8ca"
 	});
 	var dessertTab = Ti.UI.createTab({
-		title: 'dessert',
-		window: dessertWindow
+		title: 'DESSERT',
+		window: dessertWindow,
 	});
+	var dessertLabel = Ti.UI.createLabel({
+		text: "Dessert",
+		color: '#000',
+		font: {fontSize: '24', fontFamily:'Cochin'},
+		textAlign: 'center',
+		width: 'auto'
+	});
+	dessertWindow.add(dessertLabel);
+	
 	
 	//beverages tab
 	var beveragesWindow = Ti.UI.createWindow({
@@ -41,9 +48,18 @@ var tabPage = function(){
 		backgroundColor: "#c6c8ca"
 	});
 	var beveragesTab = Ti.UI.createTab({
-		title: 'beverages',
-		window: beveragesWindow
+		title: 'BEVERAGES',
+		window: beveragesWindow,
 	});
+	var beveragesLabel = Ti.UI.createLabel({
+		text: "Beverages",
+		color: '#000',
+		font: {fontSize: '24', fontFamily:'Cochin'},
+		textAlign: 'center',
+		width: 'auto'
+	});
+	beveragesWindow.add(beveragesLabel);
+	
 	
 	//liquer tab
 	var liquerWindow = Ti.UI.createWindow({
@@ -51,12 +67,25 @@ var tabPage = function(){
 		backgroundColor: "#c6c8ca"
 	});
 	var liquerTab = Ti.UI.createTab({
-		title: 'liquer',
-		window: liquerWindow
+		title: 'LIQUER',
+		window: liquerWindow,
 	});
+	var liquerLabel = Ti.UI.createLabel({
+		text: "Liquer",
+		color: '#000',
+		font: {fontSize: '24', fontFamily:'Cochin'},
+		textAlign: 'center',
+		width: 'auto'
+	});
+	liquerWindow.add(liquerLabel);
+	
 	
 	//add tabs to menu
-	tabMenu.add(foodTab, dessertTab, beveragesTab, liquerTab);
+	var tabMenu = Ti.UI.createTabGroup({
+		tabs: [foodTab, dessertTab, beveragesTab, liquerTab],
+		swipeable: 'true',
+	});
+	
 	
 	
 	tabMenu.open();
@@ -65,5 +94,5 @@ var tabPage = function(){
 
 
 
-tabPage.exports = tabPage;
+exports.tabPage = tabPage;
 

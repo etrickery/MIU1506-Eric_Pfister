@@ -8,8 +8,8 @@ var imageCollectionFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirecto
 var imageCollection = imageCollectionFolder.getDirectoryListing();
 var screenWidth = Ti.Platform.displayCaps.platformWidth;
 var screenHeight = Ti.Platform.displayCaps.platformHeight;
+var numPeople = '10';
 
-var loadContent = require('content');
 
 
 var mainWindow = Ti.UI.createWindow({
@@ -58,8 +58,84 @@ var enterLabel = Ti.UI.createLabel({
 
 
 enterLabel.addEventListener('click', function(event){
-	loadContent.tabPage;
-	console.log('clicked');
+	var popupWindow = Ti.UI.createWindow({
+		backgroundColor: 'transparent'
+	});
+	
+	var closePopup = function(){
+		popupWindow.close();
+		var loadContent = require('content');
+		loadContent.tabPage();
+	};
+	
+	var escapeHatch = Ti.UI.createView({
+		top: 10,
+		right: 10,
+		width: 20,
+		height: 20,
+		
+	});
+	
+	var escapeHatchLabel = Ti.UI.createView({
+		color: '#c6c8ca',
+		text: 'X',
+		font: {fontFamily: 'Didot-Bold', fontSize: '30'},
+		align: 'center',
+		top: 0
+	});
+	
+	var popupViewBackground = Ti.UI.createView({
+		backgroundColor: 404041,
+		opacity: 0.80,
+		height: screenHeight/2,
+		width: screenWidth-60,
+		align: 'center',
+		top: '30%',
+		borderRadius: 10,
+		borderHeight: 0
+	});
+	
+	var popupView = Ti.UI.createView({
+		backgroundColor: 'transparent',
+		height: screenHeight/2,
+		width: screenWidth-60,
+		align: 'center',
+		top: '30%',
+		borderRadius: 10,
+		borderHeight: 0
+	});
+	
+	var popupViewTextBox = Ti.UI.createTextField({
+		boarderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+		right: 30,
+		bottom: 50,
+		height: 20,
+		width: 20,
+		value: numPeople,
+		backgroundColor: '#e0e8ed',
+		
+	});
+	
+	var popupViewOK = Titanium.UI.createButton({
+    	title: 'OK',
+    	style: Titanium.UI.iPhone.SystemButtonStyle.DONE,
+    	right: 30,
+    	bottom: 20
+	});
+	
+	popupView.add(popupViewBackground, escapeHatch, popupViewTextBox, popupViewOK);
+	
+	
+	escapeHatch.addEventListener('click', closePopup);
+	
+	
+	escapeHatch.add(escapeHatchLabel);
+	popupWindow.add(popupView);
+	popupWindow.open();
+	
+	
+	
+	
 });
 
 mainWindow.add(titleView, titleLabel, enterButton, enterLabel);
