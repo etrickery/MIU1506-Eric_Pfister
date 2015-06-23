@@ -2,7 +2,6 @@
 
 
 var tabPage = function(){
-	console.log('running');
 	
 	//food tab
 	var foodWindow = Ti.UI.createWindow({
@@ -13,33 +12,19 @@ var tabPage = function(){
 		title: 'FOOD',
 		window: foodWindow,
 	});
-	var foodLabel = Ti.UI.createLabel({
-		text: "Food",
-		color: '#000',
-		font: {fontSize: '24', fontFamily:'Cochin'},
-		textAlign: 'center',
-		width: 'auto'
-	});
-	foodWindow.add(foodLabel);
+	
 	
 	
 	//dessert tab
-	var dessertWindow = Ti.UI.createWindow({
-		title: 'dessert',
+	var dessertsWindow = Ti.UI.createWindow({
+		title: 'Desserts',
 		backgroundColor: "#c6c8ca"
 	});
-	var dessertTab = Ti.UI.createTab({
-		title: 'DESSERT',
-		window: dessertWindow,
+	var dessertsTab = Ti.UI.createTab({
+		title: 'DESSERTS',
+		window: dessertsWindow,
 	});
-	var dessertLabel = Ti.UI.createLabel({
-		text: "Dessert",
-		color: '#000',
-		font: {fontSize: '24', fontFamily:'Cochin'},
-		textAlign: 'center',
-		width: 'auto'
-	});
-	dessertWindow.add(dessertLabel);
+	
 	
 	
 	//beverages tab
@@ -51,14 +36,7 @@ var tabPage = function(){
 		title: 'BEVERAGES',
 		window: beveragesWindow,
 	});
-	var beveragesLabel = Ti.UI.createLabel({
-		text: "Beverages",
-		color: '#000',
-		font: {fontSize: '24', fontFamily:'Cochin'},
-		textAlign: 'center',
-		width: 'auto'
-	});
-	beveragesWindow.add(beveragesLabel);
+	
 	
 	
 	//liquer tab
@@ -70,22 +48,162 @@ var tabPage = function(){
 		title: 'LIQUER',
 		window: liquerWindow,
 	});
-	var liquerLabel = Ti.UI.createLabel({
-		text: "Liquer",
-		color: '#000',
-		font: {fontSize: '24', fontFamily:'Cochin'},
-		textAlign: 'center',
-		width: 'auto'
-	});
-	liquerWindow.add(liquerLabel);
+	
 	
 	
 	//add tabs to menu
 	var tabMenu = Ti.UI.createTabGroup({
-		tabs: [foodTab, dessertTab, beveragesTab, liquerTab],
+		tabs: [foodTab, dessertsTab, beveragesTab, liquerTab],
 		swipeable: 'true',
 	});
 	
+	
+	
+	var loadData = require('data');
+	for(x in loadData.jsonObject){
+		for(y in loadData.jsonObject[x]){
+			if(loadData.jsonObject[x][y].Title === "Food"){
+				var foodImage = Ti.UI.createImageView({
+					bottom: screenHeight-350,
+					image: "./images/" + loadData.jsonObject[x][y].Title + ".jpg",
+					width: screenWidth,
+					height: '300'
+				});
+				
+				var titleBanner = Ti.UI.createView({
+					width: screenWidth,
+					height: '50',
+					backgroundColor: '#677ba0',
+					top: 200
+				});
+				
+				var bodyBackground = Ti.UI.createView({
+					width: screenWidth,
+					height: screenHeight-350,
+					backgroundColor: '#e0e8ed',
+					bottom: 0
+				});
+				
+				var foodTable = Ti.UI.createTableView({
+					backgroundColor: '#e0e8ed',
+					width: screenWidth,
+					height: screenHeight-350,
+					bottom: 0,
+					style: Ti.UI.iPhone.TableViewStyle.GROUPED,
+					separatorStyle : Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
+				});
+				
+				var foodItems = [];
+				
+				for(z in loadData.jsonObject[x][y]){
+					console.log(z);
+					console.log(loadData.jsonObject[x][y][z]);
+					var tableRows = Ti.UI.createTableViewRow({
+						backgroundColor: '#e0e8ed',
+						height: 'auto',
+					});
+					
+					var itemLabel = Ti.UI.createLabel({
+						color: '#7c5f53',
+						height: 'auto',
+						left: '20',
+						text: z,
+						font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
+					});
+					
+					var itemValue = Ti.UI.createLabel({
+						color: '#7c5f53',
+						height: 'auto',
+						right: '20',
+						text: loadData.jsonObject[x][y][z] * numPeople, 
+						font: {fontFamily: 'Cochin', fontSize: '14'}
+					});
+					
+					//need to error correct and build out tables
+					
+					tableRows.add(itemLabel, itemValue);
+					foodItems.push(tableRows);
+					
+				};
+				
+				foodTable.setData(foodItems);
+				
+				foodWindow.add(foodImage, bodyBackground, titleBanner, foodTable);
+				
+			}else if(loadData.jsonObject[x][y].Title === "Desserts"){
+				var dessertsImage = Ti.UI.createImageView({
+					bottom: screenHeight-350,
+					image: "./images/" + loadData.jsonObject[x][y].Title + ".jpg",
+					width: screenWidth,
+					height: '300'
+				});
+				
+				var titleBanner = Ti.UI.createView({
+					width: screenWidth,
+					height: '50',
+					backgroundColor: '#677ba0',
+					top: 200
+				});
+				
+				var bodyBackground = Ti.UI.createView({
+					width: screenWidth,
+					height: screenHeight-350,
+					backgroundColor: '#e0e8ed',
+					bottom: 0
+				});
+				
+				dessertsWindow.add(dessertsImage, bodyBackground, titleBanner);
+				
+			}else if(loadData.jsonObject[x][y].Title === "Beverages"){
+				var beveragesImage = Ti.UI.createImageView({
+					top: '0',
+					image: "./images/" + loadData.jsonObject[x][y].Title + ".jpg",
+					width: screenWidth,
+					height: '300'
+				});
+				
+				var titleBanner = Ti.UI.createView({
+					width: screenWidth,
+					height: '50',
+					backgroundColor: '#677ba0',
+					top: 200
+				});
+				
+				var bodyBackground = Ti.UI.createView({
+					width: screenWidth,
+					height: screenHeight-350,
+					backgroundColor: '#e0e8ed',
+					bottom: 0
+				});
+				
+				beveragesWindow.add(beveragesImage, bodyBackground, titleBanner);
+			
+			}else if(loadData.jsonObject[x][y].Title === "Liquer"){
+				var liquerImage = Ti.UI.createImageView({
+					bottom: screenHeight-350,
+					image: "./images/" + loadData.jsonObject[x][y].Title + ".jpg",
+					width: screenWidth,
+					height: '300'
+				});
+				
+				var titleBanner = Ti.UI.createView({
+					width: screenWidth,
+					height: '50',
+					backgroundColor: '#677ba0',
+					top: 200
+				});
+				
+				var bodyBackground = Ti.UI.createView({
+					width: screenWidth,
+					height: screenHeight-350,
+					backgroundColor: '#e0e8ed',
+					bottom: 0
+				});
+				
+				liquerWindow.add(liquerImage, bodyBackground, titleBanner);
+			};
+		};
+	};
 	
 	
 	tabMenu.open();
