@@ -8,7 +8,7 @@ var imageCollectionFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirecto
 var imageCollection = imageCollectionFolder.getDirectoryListing();
 var screenWidth = Ti.Platform.displayCaps.platformWidth;
 var screenHeight = Ti.Platform.displayCaps.platformHeight;
-var numPeople = '10';
+var numPeople = '3';
 
 
 
@@ -41,13 +41,12 @@ var enterButton = Ti.UI.createLabel({
 	bottom: 0,
 });
 
-
 var enterLabel = Ti.UI.createLabel({
 	color: '#c6c8ca',
 	text: 'enter',
-	font: {fontFamily: 'Didot-Bold', fontSize: '40'},
+	font: {fontFamily: 'Didot-Bold', fontSize: '24'},
 	align: 'center',
-	bottom: 10,
+	bottom: 20,
 	shadowColor: '#2a388f',
 	shadowOffset: {x: 1, y: 1},
 	shadowRadius: 1,
@@ -60,6 +59,15 @@ var enterLabel = Ti.UI.createLabel({
 enterLabel.addEventListener('click', function(event){
 	var popupWindow = Ti.UI.createWindow({
 		backgroundColor: 'transparent'
+	});
+	
+	var popupWindowBackground = Ti.UI.createView({
+		backgroundColor: 404041,
+		opacity: 0.60,
+		height: screenHeight,
+		width: screenWidth,
+		align: 'center',
+		top: '0'
 	});
 	
 	var closePopup = function(){
@@ -85,8 +93,7 @@ enterLabel.addEventListener('click', function(event){
 	escapeHatch.add(escapeHatchLabel);
 	
 	var popupViewBackground = Ti.UI.createView({
-		backgroundColor: 404041,
-		opacity: 0.80,
+		backgroundColor: '#e0e8ed',
 		height: 300,
 		width: screenWidth-60,
 		align: 'center',
@@ -106,14 +113,14 @@ enterLabel.addEventListener('click', function(event){
 	});
 	
 	var popupViewTextBox = Ti.UI.createTextField({
-		boarderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 		right: 30,
 		bottom: 50,
 		height: 20,
 		width: 80,
 		value: numPeople,
 		textAlign: 'right',
-		backgroundColor: '#e0e8ed',
+		backgroundColor: '#FFF',
+		keyboardType:Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
 	});
 	
 	var popupViewOK = Ti.UI.createButton({
@@ -123,34 +130,101 @@ enterLabel.addEventListener('click', function(event){
     	bottom: 20,
 	});
 	
-	
-	
-	var popupPromptLabel = Ti.UI.createLabel({
+	var instructionsLabel = Ti.UI.createLabel({
 		left: 30,
-		bottom: 50,
+		top: 50,
 		width: screenWidth-100,
-    	color: '#e0e8ed',
-		text: 'Please enter the number of guests attending',
+    	color: '#7c5f53',
+    	textWrap: 'true',
+		text: 'Everyone needs a little help sometimes. Let us calculate the quantities while you focus on being creative! Enter the number of guests attending your event, from ten to a thousand.',
 		font: {fontFamily: 'Cochin', fontSize: '20'}
 	});
 	
+	var popupPromptLabel = Ti.UI.createLabel({
+		left: 30,
+		bottom: 53,
+		width: screenWidth-100,
+    	color: '#7c5f53',
+		text: 'Please enter the number of guests attending: (10-1000)',
+		font: {fontFamily: 'Cochin', fontSize: '16'}
+	});
+
 	var loadContent = require('content');
+	
 		
 	popupViewOK.addEventListener('click', function(event){
-		numPeople = popupViewTextBox.value;
-		closePopup();
-		loadContent.tabPage();
+		if(Number(popupViewTextBox.value) >= '10' && Number(popupViewTextBox.value) <= '1000'){
+				numPeople = popupViewTextBox.value;
+				closePopup();
+				loadContent.tabPage();
+		}else{
+				var errorWindow = Ti.UI.createWindow({
+					backgroundColor: 'transparent'
+				});
+				var errorWindowBackground = Ti.UI.createView({
+					backgroundColor: '#404041',
+					opacity: '0.50',
+					width: screenWidth,
+					height: screenHeight
+				});
+				errorWindow.add(errorWindowBackground);
+				var errorEscapeHatch = Ti.UI.createView({
+					top: 5,
+					right: 5,
+					width: 15,
+					height: 20,
+					
+				});
+				var errorEscapeHatchLabel = Ti.UI.createLabel({
+					color: '#6d2305',
+					text: 'X',
+					font: {fontFamily: 'Copperplate-Bold', fontSize: '20'},
+					top: 0,
+					right: 0
+				});
+				errorEscapeHatch.add(errorEscapeHatchLabel);
+				var errorBox = Ti.UI.createView({
+					height: '150',
+					width: '250',
+					backgroundColor: '#e0e8ed',
+					top: 250,
+					borderRadius: 10,
+					borderHeight: 0					
+				});
+				var errorMessage = Ti.UI.createLabel({
+					left: 10,
+					top: 20,
+			    	color: '#ed1c24',
+					text: 'Please enter a number between 10 and 1000.',
+					font: {fontFamily: 'Cochin', fontSize: '20'}
+				});
+				var errorOK = Ti.UI.createButton({
+			    	title: 'OK',
+			    	style: Titanium.UI.iPhone.SystemButtonStyle.SUBMIT,
+			    	right: 5,
+			    	bottom: 5,
+				});
+				var closeError = function(){
+					errorWindow.close();
+				};
+				errorOK.addEventListener('click', closeError);
+				errorEscapeHatch.addEventListener('click', closeError);
+				errorBox.add(errorMessage, errorEscapeHatch, errorOK);
+				errorWindow.add(errorBox);
+				errorWindow.open();
+				
+		}
 	});
 	
 	
-	popupView.add(popupViewBackground, escapeHatch, popupPromptLabel, popupViewTextBox, popupViewOK);
+	popupView.add(popupViewBackground, escapeHatch, popupPromptLabel, instructionsLabel, popupViewTextBox, popupViewOK);
 	
 	
 	escapeHatch.addEventListener('click', closePopup);
 	
 	
 	escapeHatch.add(escapeHatchLabel);
-	popupWindow.add(popupView);
+	popupWindow.add(popupWindowBackground, popupView);
 	popupWindow.open();
 	
 	

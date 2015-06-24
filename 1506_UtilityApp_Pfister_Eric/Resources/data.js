@@ -2,9 +2,9 @@ var jsonObject = {
 					"Servings": [
 									{
 										"Title": "Food",				//tab
-										"Main Dish": "1.5",				//servings ie hamburgers
-										"Side Dishes": "1.5",			//# of cups 
-										"Fruits & Vegetables": "0.08",	//round up # of large trays
+										"Main Dish (ie: Sandwiches)": "1.5",				//servings ie hamburgers
+										"Side Dishes (cups)": "1.5",			//# of cups 
+										"Fruits & Vegetables (# of trays)": "0.08",	//round up # of large trays
 										"Apps(with a meal)": "6",		//appetizers with a meal
 										"Apps(no main dish)": "12",		//apps by themselves
 									},
@@ -12,20 +12,20 @@ var jsonObject = {
 										"Title": "Desserts",
 										"Cupcakes": "1.5",	//seperate button for cake
 										"Cookies": "3",		//medium cookies
-										"Candy": ".5",		//cups 
-										"Ice Cream": "1",	//cups
+										"Candy (cups)": ".5",		//cups 
+										"Ice Cream (cups)": "1",	//cups
 									},
 									{
 										"Title": "Beverages",
-										"Lemonade": "0.16",		//reduce by 30% if more than one
-										"Punch": "0.16",		//drink selected
-										"Tea": "0.16"			//round up, in gallons
+										"Lemonade (gallons)": "0.16",		//reduce by 30% if more than one
+										"Punch (gallons)": "0.16",		//drink selected
+										"Tea (gallons)": "0.16"			//round up, in gallons
 									},
 									{
 										"Title": "Liquer",
-										"Non-Alcoholic": "0.08", //round up in gallons
-										"Alcoholic Drinks": "1.5", //drinks per hour
-										"Keg": ".011"	//round up, #of kegs (or #x7 = # of cases)
+										"Non-Alcoholic (gallons)": "0.08", //round up in gallons
+										"Alcoholic Drinks (drinks per hour)": "1.5", //drinks per hour
+										"Kegs (Or 7 cases per keg)": ".011"	//round up, #of kegs (or #x7 = # of cases)
 									}
 					]
 	

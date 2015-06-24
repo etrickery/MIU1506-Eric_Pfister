@@ -13,7 +13,23 @@ var tabPage = function(){
 		window: foodWindow,
 	});
 	
+	var navEscapeHatch = Ti.UI.createView({
+		top: 30,
+		right: 30,
+		width: 20,
+		height: 20,
+		
+	});
 	
+	var navEscapeHatchLabel = Ti.UI.createLabel({
+		color: '#000',
+		text: 'X',
+		font: {fontFamily: 'Copperplate-Bold', fontSize: '20'},
+		top: 0,
+		right: 0
+	});
+	
+	navEscapeHatch.add(navEscapeHatchLabel);
 	
 	//dessert tab
 	var dessertsWindow = Ti.UI.createWindow({
@@ -96,8 +112,6 @@ var tabPage = function(){
 				var foodItems = [];
 				
 				for(z in loadData.jsonObject[x][y]){
-					console.log(z);
-					console.log(loadData.jsonObject[x][y][z]);
 					var tableRows = Ti.UI.createTableViewRow({
 						backgroundColor: '#e0e8ed',
 						height: 'auto',
@@ -111,15 +125,30 @@ var tabPage = function(){
 						font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
 					});
 					
-					var itemValue = Ti.UI.createLabel({
-						color: '#7c5f53',
-						height: 'auto',
-						right: '20',
-						text: loadData.jsonObject[x][y][z] * numPeople, 
-						font: {fontFamily: 'Cochin', fontSize: '14'}
-					});
-					
-					//need to error correct and build out tables
+					if(z === 'Title'){
+							var itemLabel = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								left: '22',
+								text: loadData.jsonObject[x][y][z],
+								font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
+							});
+					}else{
+							var itemLabel = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								left: '20',
+								text: z,
+								font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
+							});
+							var itemValue = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								right: '20',
+								text: Math.round(loadData.jsonObject[x][y][z] * numPeople), 
+								font: {fontFamily: 'Cochin', fontSize: '14'}
+							});
+					};
 					
 					tableRows.add(itemLabel, itemValue);
 					foodItems.push(tableRows);
@@ -152,7 +181,55 @@ var tabPage = function(){
 					bottom: 0
 				});
 				
-				dessertsWindow.add(dessertsImage, bodyBackground, titleBanner);
+				var dessertsTable = Ti.UI.createTableView({
+					backgroundColor: '#e0e8ed',
+					width: screenWidth,
+					height: screenHeight-350,
+					bottom: 0,
+					style: Ti.UI.iPhone.TableViewStyle.GROUPED,
+					separatorStyle : Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
+				});
+				
+				var dessertsItems = [];
+				
+				for(z in loadData.jsonObject[x][y]){
+					var dessertsRows = Ti.UI.createTableViewRow({
+						backgroundColor: '#e0e8ed',
+						height: 'auto',
+					});
+					
+					if(z === 'Title'){
+							var dessertsItemLabel = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								left: '22',
+								text: loadData.jsonObject[x][y][z],
+								font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
+							});
+					}else{
+							var dessertsItemLabel = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								left: '20',
+								text: z,
+								font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
+							});
+							var dessertsItemValue = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								right: '20',
+								text: (loadData.jsonObject[x][y][z] * numPeople), 
+								font: {fontFamily: 'Cochin', fontSize: '14'}
+							});
+					};
+					
+					dessertsRows.add(dessertsItemLabel, dessertsItemValue);
+					dessertsItems.push(dessertsRows);
+				};
+				
+				dessertsTable.setData(dessertsItems);
+				
+				dessertsWindow.add(dessertsImage, bodyBackground, titleBanner, dessertsTable);
 				
 			}else if(loadData.jsonObject[x][y].Title === "Beverages"){
 				var beveragesImage = Ti.UI.createImageView({
@@ -176,7 +253,55 @@ var tabPage = function(){
 					bottom: 0
 				});
 				
-				beveragesWindow.add(beveragesImage, bodyBackground, titleBanner);
+				var beveragesTable = Ti.UI.createTableView({
+					backgroundColor: '#e0e8ed',
+					width: screenWidth,
+					height: screenHeight-350,
+					bottom: 0,
+					style: Ti.UI.iPhone.TableViewStyle.GROUPED,
+					separatorStyle : Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
+				});
+				
+				var beveragesItems = [];
+				
+				for(z in loadData.jsonObject[x][y]){
+					var beveragesRows = Ti.UI.createTableViewRow({
+						backgroundColor: '#e0e8ed',
+						height: 'auto',
+					});
+					
+					if(z === 'Title'){
+							var beveragesItemLabel = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								left: '22',
+								text: loadData.jsonObject[x][y][z],
+								font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
+							});
+					}else{
+							var beveragesItemLabel = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								left: '20',
+								text: z,
+								font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
+							});
+							var beveragesItemValue = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								right: '20',
+								text: Math.round(loadData.jsonObject[x][y][z] * numPeople), 
+								font: {fontFamily: 'Cochin', fontSize: '14'}
+							});
+					};
+					
+					beveragesRows.add(beveragesItemLabel, beveragesItemValue);
+					beveragesItems.push(beveragesRows);
+				};
+				
+				beveragesTable.setData(beveragesItems);
+				
+				beveragesWindow.add(beveragesImage, bodyBackground, titleBanner, beveragesTable);
 			
 			}else if(loadData.jsonObject[x][y].Title === "Liquer"){
 				var liquerImage = Ti.UI.createImageView({
@@ -200,12 +325,69 @@ var tabPage = function(){
 					bottom: 0
 				});
 				
-				liquerWindow.add(liquerImage, bodyBackground, titleBanner);
+				var liquerTable = Ti.UI.createTableView({
+					backgroundColor: '#e0e8ed',
+					width: screenWidth,
+					height: screenHeight-350,
+					bottom: 0,
+					style: Ti.UI.iPhone.TableViewStyle.GROUPED,
+					separatorStyle : Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
+				});
+				
+				var liquerItems = [];
+				
+				for(z in loadData.jsonObject[x][y]){
+					var liquerRows = Ti.UI.createTableViewRow({
+						backgroundColor: '#e0e8ed',
+						height: 'auto',
+					});
+					
+					if(z === 'Title'){
+							var liquerItemLabel = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								left: '22',
+								text: loadData.jsonObject[x][y][z],
+								font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
+							});
+					}else{
+							var liquerItemLabel = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								left: '20',
+								text: z,
+								font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
+							});
+							var liquerItemValue = Ti.UI.createLabel({
+								color: '#7c5f53',
+								height: 'auto',
+								right: '20',
+								text: Math.round(loadData.jsonObject[x][y][z] * numPeople), 
+								font: {fontFamily: 'Cochin', fontSize: '14'}
+							});
+							if(liquerItemValue.text === '0'){
+								liquerItemValue.text = '0';
+							};	
+					};
+					
+					liquerRows.add(liquerItemLabel, liquerItemValue);
+					liquerItems.push(liquerRows);
+				};
+				
+				liquerTable.setData(liquerItems);
+				
+				liquerWindow.add(liquerImage, bodyBackground, titleBanner, liquerTable);
 			};
 		};
 	};
 	
+	var closeNav = function(){
+		tabMenu.close();
+	};
 	
+	navEscapeHatch.addEventListener('click', closeNav);
+	
+	tabMenu.add(navEscapeHatch);
 	tabMenu.open();
 	
 };
