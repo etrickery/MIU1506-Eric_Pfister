@@ -1,0 +1,174 @@
+var loginPop = function(){
+	var loginWindow = Ti.UI.createWindow({
+		backgroundColor: 'transparent'
+	});
+	
+	var backgroundView = Ti.UI.createView({
+		width: screenWidth,
+		height: screenHeight,
+		backgroundColor: '#c6c8ca',
+		bottom: 0,
+	});
+	
+	var upperTile = Ti.UI.createView({
+		width: screenWidth-30,
+		height: 200,
+		backgroundColor: '#a3bfd9',
+		top: 25,
+	});
+	
+	var upperTitleLabel = Ti.UI.createLabel({
+		color: '#FFF',
+		text: 'party fool\nblog',
+		font: {fontFamily: 'Didot-Bold', fontSize: '72'},
+		align: 'center',
+		top: 80
+	});
+	
+	var lowerTile = Ti.UI.createView({
+		width: screenWidth-30,
+		height: screenHeight-240,
+		backgroundColor: '#e0e8ed',
+		top: 225,
+	});
+	
+	var bannerBar = Ti.UI.createView({
+		width: screenWidth,
+		height: 50,
+		backgroundColor: '#677ba0',
+		top: 225,
+	});
+	
+	var bannerTitle = Ti.UI.createLabel({
+		color: '#FFF',
+		align: 'center',
+		text: 'Join our email blog!',
+		font: {fontFamily: 'Didot-Bold', fontSize: '24'}
+	});
+	bannerBar.add(bannerTitle);
+	
+	var emailAddress = Ti.UI.createView({
+		backgroundColor: 'transparent',
+		width: screenWidth-40,
+		height: '20',
+		top: 100
+	});
+	var emailPrompt = Ti.UI.createLabel({
+		color: '#7c5f53',
+		left: 5,
+		text: 'Enter your email address:',
+		font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '16'}
+	});
+	var emailBox = Ti.UI.createTextField({
+		font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '16'},
+		right: 5,
+		height: 20,
+		width: 130,
+		value: 'your@email.com',
+		textAlign: 'right',
+		backgroundColor: '#d4c7c0',
+		keyboardType:Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	});
+	emailAddress.add(emailPrompt, emailBox);
+	
+	var userName = Ti.UI.createView({
+		backgroundColor: 'transparent',
+		width: screenWidth-40,
+		height: '20',
+		top: 130
+	});
+	var userNamePrompt = Ti.UI.createLabel({
+		color: '#7c5f53',
+		left: 5,
+		text: 'Enter your username:',
+		font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '16'}
+	});
+	var userNameBox = Ti.UI.createTextField({
+		font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '16'},
+		right: 5,
+		height: 20,
+		width: 130,
+		value: 'username',
+		textAlign: 'right',
+		backgroundColor: '#d4c7c0',
+		keyboardType:Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	});
+	userName.add(userNamePrompt, userNameBox);
+	
+	var passWord = Ti.UI.createView({
+		backgroundColor: 'transparent',
+		width: screenWidth-40,
+		height: '20',
+		top: 160
+	});
+	var passWordPrompt = Ti.UI.createLabel({
+		color: '#7c5f53',
+		left: 5,
+		text: 'Enter your password:',
+		font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '16'}
+	});
+	var passWordBox = Ti.UI.createTextField({
+		font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '16'},
+		right: 5,
+		height: 20,
+		width: 130,
+		value: 'password',
+		textAlign: 'right',
+		backgroundColor: '#d4c7c0',
+		passwordMask: 'true',
+		keyboardType:Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	});
+	passWord.add(passWordPrompt, passWordBox);
+	
+	var confirmPassWord = Ti.UI.createView({
+		backgroundColor: 'transparent',
+		width: screenWidth-40,
+		height: '20',
+		top: 190
+	});
+	var confirmPassWordPrompt = Ti.UI.createLabel({
+		color: '#7c5f53',
+		left: 5,
+		text: 'Confirm your password:',
+		font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '16'}
+	});
+	var confirmPassWordBox = Ti.UI.createTextField({
+		font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '16'},
+		right: 5,
+		height: 20,
+		width: 130,
+		value: 'password',
+		textAlign: 'right',
+		backgroundColor: '#d4c7c0',
+		passwordMask: 'true',
+		keyboardType:Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
+	});
+	confirmPassWord.add(confirmPassWordPrompt, confirmPassWordBox);
+	
+	
+	var okButton = Ti.UI.createView({
+		backgroundColor: '#677ba0',
+		width: 120,
+		height: '30',
+		top: 240,
+		right: 5
+	});
+	var okButtonLabel = Ti.UI.createLabel({
+		color: '#FFF',
+		align: 'center',
+		text: 'JOIN',
+		font: {fontFamily: 'Copperplate-Bold', fontWeight: 'Bold', fontSize: '16'}
+	});
+	okButton.add(okButtonLabel);
+
+	
+	lowerTile.add(emailAddress, userName, passWord, confirmPassWord, okButton);
+	
+	loginWindow.add(backgroundView, upperTile, lowerTile, bannerBar);
+	loginWindow.open();
+};
+
+
+
+
+exports.loginPop = loginPop;

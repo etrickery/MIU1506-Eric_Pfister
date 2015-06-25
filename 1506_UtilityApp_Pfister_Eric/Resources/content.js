@@ -366,7 +366,7 @@ var tabPage = function(){
 								font: {fontFamily: 'Cochin', fontSize: '14'}
 							});
 							if(liquerItemValue.text === '0'){
-								liquerItemValue.text = '0';
+								liquerItemValue.text = '1';
 							};	
 					};
 					

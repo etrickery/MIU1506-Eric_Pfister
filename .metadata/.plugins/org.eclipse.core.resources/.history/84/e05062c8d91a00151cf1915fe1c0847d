@@ -1,0 +1,20 @@
+var loginPop = function(){
+	var loginWindow = Ti.UI.createWindow({
+		backgroundColor: 'transparent'
+	});
+	
+	var backgroundView = Ti.UI.createView({
+		width: screenWidth,
+		height: screenHeight,
+		backgroundColor: '#e0e8ed',
+		bottom: 0,
+		opacity: '0.5'
+	});
+	
+	loginWindow.open();
+};
+
+
+
+
+exports.loginPop = loginPop;

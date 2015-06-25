@@ -1,0 +1,59 @@
+var loginPop = function(){
+	var loginWindow = Ti.UI.createWindow({
+		backgroundColor: 'transparent'
+	});
+	
+	var backgroundView = Ti.UI.createView({
+		width: screenWidth,
+		height: screenHeight,
+		backgroundColor: '#c6c8ca',
+		bottom: 0,
+	});
+	
+	var upperTile = Ti.UI.createView({
+		width: screenWidth-30,
+		height: 200,
+		backgroundColor: '#a3bfd9',
+		top: 25,
+	});
+	
+	var lowerTile = Ti.UI.createView({
+		width: screenWidth-30,
+		height: screenHeight-240,
+		backgroundColor: '#e0e8ed',
+		top: 225,
+	});
+	
+	var bannerBar = Ti.UI.createView({
+		width: screenWidth,
+		height: 50,
+		backgroundColor: '#677ba0',
+		top: 225,
+	});
+	
+	var formTable = Ti.UI.createView({
+		backgroundColor: '#e0e8ed',
+		width: screenWidth,
+		height: screenHeight-350,
+		bottom: 0,
+		style: Ti.UI.iPhone.TableViewStyle.GROUPED,
+		separatorStyle : Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
+	});
+	
+	var emailAddress = Ti.UI.createTableViewRow({
+		backgroundColor: '#e0e8ed',
+		height: 'auto',
+	});
+	
+	var 
+	
+	formTable.add(emailAddress);
+	
+	loginWindow.add(backgroundView, upperTile, lowerTile, bannerBar);
+	loginWindow.open();
+};
+
+
+
+
+exports.loginPop = loginPop;

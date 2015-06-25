@@ -1,0 +1,8 @@
+var loginPop = function(){
+	
+};
+
+
+
+
+exports.loginPop = loginPop;
