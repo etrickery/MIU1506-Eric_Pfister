@@ -1,24 +1,17 @@
-
-//signup form
 var loginPop = function(){
-	
-	//input variables
 	var emailAddy;
 	var user;
 	var pass;
 	var pass2;
 	
-	//close function
 	var closeLogin = function(){
 		loginWindow.close();
 	};
 	
-	//window
 	var loginWindow = Ti.UI.createWindow({
 		backgroundColor: 'transparent'
 	});
 	
-	//background
 	var backgroundView = Ti.UI.createView({
 		width: screenWidth,
 		height: screenHeight,
@@ -26,7 +19,6 @@ var loginPop = function(){
 		bottom: 0,
 	});
 	
-	//upper background
 	var upperTile = Ti.UI.createView({
 		width: screenWidth-30,
 		height: 200,
@@ -34,13 +26,16 @@ var loginPop = function(){
 		top: 25,
 	});
 	
-	//escape hatch
+	
+	
 	var escapeHatch = Ti.UI.createView({
 		top: 10,
 		right: 30,
 		width: 20,
 		height: 20,
+		
 	});
+	
 	var escapeHatchLabel = Ti.UI.createLabel({
 		color: '#FFF',
 		text: 'X',
@@ -48,11 +43,12 @@ var loginPop = function(){
 		top: 0,
 		right: 0
 	});
+	
 	escapeHatchLabel.addEventListener('click', closeLogin);
+	
 	escapeHatch.add(escapeHatchLabel);
 	upperTile.add(escapeHatch);
 	
-	//logo
 	var upperTitleLabel = Ti.UI.createLabel({
 		color: '#FFF',
 		text: 'party fool',
@@ -62,7 +58,6 @@ var loginPop = function(){
 	});
 	upperTile.add(upperTitleLabel);
 	
-	//lower background
 	var lowerTile = Ti.UI.createView({
 		width: screenWidth-30,
 		height: screenHeight-240,
@@ -70,7 +65,6 @@ var loginPop = function(){
 		top: 225,
 	});
 	
-	//middle banner
 	var bannerBar = Ti.UI.createView({
 		width: screenWidth,
 		height: 50,
@@ -78,7 +72,6 @@ var loginPop = function(){
 		top: 225,
 	});
 	
-	//message
 	var bannerTitle = Ti.UI.createLabel({
 		color: '#FFF',
 		align: 'center',
@@ -87,7 +80,6 @@ var loginPop = function(){
 	});
 	bannerBar.add(bannerTitle);
 	
-	//email address 
 	var emailAddress = Ti.UI.createView({
 		backgroundColor: 'transparent',
 		width: screenWidth-40,
@@ -112,7 +104,6 @@ var loginPop = function(){
 	});
 	emailAddress.add(emailPrompt, emailBox);
 	
-	//username
 	var userName = Ti.UI.createView({
 		backgroundColor: 'transparent',
 		width: screenWidth-40,
@@ -137,7 +128,6 @@ var loginPop = function(){
 	});
 	userName.add(userNamePrompt, userNameBox);
 	
-	//password
 	var passWord = Ti.UI.createView({
 		backgroundColor: 'transparent',
 		width: screenWidth-40,
@@ -163,7 +153,6 @@ var loginPop = function(){
 	});
 	passWord.add(passWordPrompt, passWordBox);
 	
-	//password confirmation
 	var confirmPassWord = Ti.UI.createView({
 		backgroundColor: 'transparent',
 		width: screenWidth-40,
@@ -189,7 +178,6 @@ var loginPop = function(){
 	});
 	confirmPassWord.add(confirmPassWordPrompt, confirmPassWordBox);
 	
-	//hints
 	var hint01 = Ti.UI.createLabel({
 		color: '#404041 ',
 		right: '5',
@@ -218,9 +206,13 @@ var loginPop = function(){
 		font: {fontFamily: 'Cochin', fontSize: '14'},
 		top: 325
 	});
+	if(confirmPassWordBox.value !== passWordBox.value){
+		confirmPassWordBox.color = '#ed1c24';
+		passWordBox.color = '#ed1c24';
+	};
+	
 	lowerTile.add(hint01, hint02, hint03, hint04);
 	
-	//ok button
 	var okButton = Ti.UI.createView({
 		backgroundColor: '#677ba0',
 		width: 120,
@@ -236,8 +228,8 @@ var loginPop = function(){
 	});
 	okButton.add(okButtonLabel);
 
-	//ok button console logs the values input, stores them and closes the window
 	okButton.addEventListener('click', function(){
+		console.log('clicked');
 		emailAddy = emailBox.value;
 		user = userNameBox.value;
 		pass = passWordBox.value;
@@ -246,15 +238,14 @@ var loginPop = function(){
 		closeLogin();
 	});
 	
-	//build lower view
+	
 	lowerTile.add(emailAddress, userName, passWord, confirmPassWord, okButton);
 	
-	//build window
 	loginWindow.add(backgroundView, upperTile, lowerTile, bannerBar);
 	loginWindow.open();
 };
 
 
 
-//export login function
+
 exports.loginPop = loginPop;

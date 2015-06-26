@@ -3,22 +3,6 @@
 //main body of calculator function
 var tabPage = function(){
 	
-	//results page tab escape hatch
-	var navEscapeHatch = Ti.UI.createView({
-		top: 30,
-		right: 30,
-		width: 20,
-		height: 20,	
-	});
-	var navEscapeHatchLabel = Ti.UI.createLabel({
-		color: '#000',
-		text: 'X',
-		font: {fontFamily: 'Copperplate-Bold', fontSize: '20'},
-		top: 0,
-		right: 0
-	});
-	navEscapeHatch.add(navEscapeHatchLabel);
-	
 	//food tab
 	var foodWindow = Ti.UI.createWindow({
 		title: 'Food',
@@ -28,6 +12,23 @@ var tabPage = function(){
 		title: 'FOOD',
 		window: foodWindow,
 	});
+	
+	//food tab escape hatch
+	var navEscapeHatch = Ti.UI.createView({
+		top: 30,
+		right: 30,
+		width: 20,
+		height: 20,
+		
+	});
+	var navEscapeHatchLabel = Ti.UI.createLabel({
+		color: '#000',
+		text: 'X',
+		font: {fontFamily: 'Copperplate-Bold', fontSize: '20'},
+		top: 0,
+		right: 0
+	});
+	navEscapeHatch.add(navEscapeHatchLabel);
 	
 	//dessert tab
 	var dessertsWindow = Ti.UI.createWindow({
@@ -72,19 +73,11 @@ var tabPage = function(){
 	});
 	
 	
-	//access json object in data.js
-	var loadData = require('data');
 	
-	//sorting
+	var loadData = require('data');
 	for(x in loadData.jsonObject){
-		
-		//folding
 		for(y in loadData.jsonObject[x]){
-			
-			//putting away laundry
 			if(loadData.jsonObject[x][y].Title === "Food"){
-				
-				//build each screen, begin with food
 				var foodImage = Ti.UI.createImageView({
 					bottom: screenHeight-350,
 					image: "./images/" + loadData.jsonObject[x][y].Title + ".jpg",
@@ -92,7 +85,6 @@ var tabPage = function(){
 					height: '300'
 				});
 				
-				//body of form
 				var titleBanner = Ti.UI.createView({
 					width: screenWidth,
 					height: '50',
@@ -100,7 +92,6 @@ var tabPage = function(){
 					top: 200
 				});
 				
-				//background
 				var bodyBackground = Ti.UI.createView({
 					width: screenWidth,
 					height: screenHeight-350,
@@ -108,7 +99,6 @@ var tabPage = function(){
 					bottom: 0
 				});
 				
-				//table to house information
 				var foodTable = Ti.UI.createTableView({
 					backgroundColor: '#e0e8ed',
 					width: screenWidth,
@@ -118,19 +108,14 @@ var tabPage = function(){
 					separatorStyle : Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
 				});
 				
-				//array to push
 				var foodItems = [];
 				
-				//dig into data
 				for(z in loadData.jsonObject[x][y]){
-					
-					//build each row
 					var tableRows = Ti.UI.createTableViewRow({
 						backgroundColor: '#e0e8ed',
 						height: 'auto',
 					});
 					
-					//load each row with a label
 					var itemLabel = Ti.UI.createLabel({
 						color: '#7c5f53',
 						height: 'auto',
@@ -139,7 +124,6 @@ var tabPage = function(){
 						font: {fontFamily: 'Cochin', fontWeight: 'Bold', fontSize: '14'}
 					});
 					
-					//and title (but if main title row, then display the respective title)
 					if(z === 'Title'){
 							var itemLabel = Ti.UI.createLabel({
 								color: '#7c5f53',
@@ -165,22 +149,16 @@ var tabPage = function(){
 							});
 					};
 					
-					//build table
 					tableRows.add(itemLabel, itemValue);
 					foodItems.push(tableRows);
 					
 				};
 				
-				//push results into table
 				foodTable.setData(foodItems);
 				
-				//build food tab
 				foodWindow.add(foodImage, bodyBackground, titleBanner, foodTable);
 				
-				
 			}else if(loadData.jsonObject[x][y].Title === "Desserts"){
-				
-				//desserts image
 				var dessertsImage = Ti.UI.createImageView({
 					bottom: screenHeight-350,
 					image: "./images/" + loadData.jsonObject[x][y].Title + ".jpg",
@@ -188,7 +166,6 @@ var tabPage = function(){
 					height: '300'
 				});
 				
-				//decor
 				var titleBanner = Ti.UI.createView({
 					width: screenWidth,
 					height: '50',
@@ -196,7 +173,6 @@ var tabPage = function(){
 					top: 200
 				});
 				
-				//background
 				var bodyBackground = Ti.UI.createView({
 					width: screenWidth,
 					height: screenHeight-350,
@@ -204,7 +180,6 @@ var tabPage = function(){
 					bottom: 0
 				});
 				
-				//table
 				var dessertsTable = Ti.UI.createTableView({
 					backgroundColor: '#e0e8ed',
 					width: screenWidth,
@@ -214,17 +189,14 @@ var tabPage = function(){
 					separatorStyle : Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
 				});
 				
-				//array
 				var dessertsItems = [];
 				
-				//sort object into rows
 				for(z in loadData.jsonObject[x][y]){
 					var dessertsRows = Ti.UI.createTableViewRow({
 						backgroundColor: '#e0e8ed',
 						height: 'auto',
 					});
 					
-					//verify if title row, and then apply correct content to each row
 					if(z === 'Title'){
 							var dessertsItemLabel = Ti.UI.createLabel({
 								color: '#7c5f53',
@@ -250,20 +222,15 @@ var tabPage = function(){
 							});
 					};
 					
-					//build table items
 					dessertsRows.add(dessertsItemLabel, dessertsItemValue);
 					dessertsItems.push(dessertsRows);
 				};
 				
-				//push data into table
 				dessertsTable.setData(dessertsItems);
 				
-				//stack page
 				dessertsWindow.add(dessertsImage, bodyBackground, titleBanner, dessertsTable);
 				
 			}else if(loadData.jsonObject[x][y].Title === "Beverages"){
-				
-				//beverages image
 				var beveragesImage = Ti.UI.createImageView({
 					top: '0',
 					image: "./images/" + loadData.jsonObject[x][y].Title + ".jpg",
@@ -271,7 +238,6 @@ var tabPage = function(){
 					height: '300'
 				});
 				
-				//main banner
 				var titleBanner = Ti.UI.createView({
 					width: screenWidth,
 					height: '50',
@@ -279,7 +245,6 @@ var tabPage = function(){
 					top: 200
 				});
 				
-				//main body background
 				var bodyBackground = Ti.UI.createView({
 					width: screenWidth,
 					height: screenHeight-350,
@@ -287,7 +252,6 @@ var tabPage = function(){
 					bottom: 0
 				});
 				
-				//table
 				var beveragesTable = Ti.UI.createTableView({
 					backgroundColor: '#e0e8ed',
 					width: screenWidth,
@@ -297,17 +261,14 @@ var tabPage = function(){
 					separatorStyle : Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
 				});
 				
-				//array
 				var beveragesItems = [];
 				
-				//sort object
 				for(z in loadData.jsonObject[x][y]){
 					var beveragesRows = Ti.UI.createTableViewRow({
 						backgroundColor: '#e0e8ed',
 						height: 'auto',
 					});
 					
-					//validate data
 					if(z === 'Title'){
 							var beveragesItemLabel = Ti.UI.createLabel({
 								color: '#7c5f53',
@@ -333,20 +294,15 @@ var tabPage = function(){
 							});
 					};
 					
-					//stack table
 					beveragesRows.add(beveragesItemLabel, beveragesItemValue);
 					beveragesItems.push(beveragesRows);
 				};
 				
-				//push data to table
 				beveragesTable.setData(beveragesItems);
 				
-				//stack tab
 				beveragesWindow.add(beveragesImage, bodyBackground, titleBanner, beveragesTable);
 			
 			}else if(loadData.jsonObject[x][y].Title === "Liquer"){
-				
-				//liquer window
 				var liquerImage = Ti.UI.createImageView({
 					bottom: screenHeight-350,
 					image: "./images/" + loadData.jsonObject[x][y].Title + ".jpg",
@@ -354,7 +310,6 @@ var tabPage = function(){
 					height: '300'
 				});
 				
-				//banner
 				var titleBanner = Ti.UI.createView({
 					width: screenWidth,
 					height: '50',
@@ -362,7 +317,6 @@ var tabPage = function(){
 					top: 200
 				});
 				
-				//background
 				var bodyBackground = Ti.UI.createView({
 					width: screenWidth,
 					height: screenHeight-350,
@@ -370,7 +324,6 @@ var tabPage = function(){
 					bottom: 0
 				});
 				
-				//table
 				var liquerTable = Ti.UI.createTableView({
 					backgroundColor: '#e0e8ed',
 					width: screenWidth,
@@ -380,19 +333,14 @@ var tabPage = function(){
 					separatorStyle : Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
 				});
 				
-				//array
 				var liquerItems = [];
 				
-				//json object
 				for(z in loadData.jsonObject[x][y]){
-					
-					//rows
 					var liquerRows = Ti.UI.createTableViewRow({
 						backgroundColor: '#e0e8ed',
 						height: 'auto',
 					});
 					
-					//title? then display title, else display title and result
 					if(z === 'Title'){
 							var liquerItemLabel = Ti.UI.createLabel({
 								color: '#7c5f53',
@@ -421,35 +369,29 @@ var tabPage = function(){
 							};	
 					};
 					
-					//stack rows
 					liquerRows.add(liquerItemLabel, liquerItemValue);
 					liquerItems.push(liquerRows);
 				};
 				
-				//push data to table
 				liquerTable.setData(liquerItems);
 				
-				//stack window
 				liquerWindow.add(liquerImage, bodyBackground, titleBanner, liquerTable);
 			};
 		};
 	};
 	
-	//close nav page window
 	var closeNav = function(){
 		tabMenu.close();
 	};
 	
-	//close page if clicked
 	navEscapeHatch.addEventListener('click', closeNav);
 	
-	//add escape hatch to nav page
 	tabMenu.add(navEscapeHatch);
 	tabMenu.open();
 	
 };
 
 
-//export use of tabpage
+
 exports.tabPage = tabPage;
 

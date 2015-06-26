@@ -205,7 +205,6 @@ enterLabel.addEventListener('click', function(event){
 		value: numPeople,
 		textAlign: 'right',
 		backgroundColor: '#FFF',
-		keyboardType: Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION,
 	});
 	
 	//ok button
@@ -216,7 +215,7 @@ enterLabel.addEventListener('click', function(event){
     	bottom: 20,
 	});
 	
-	//note about input
+	//
 	var instructionsLabel = Ti.UI.createLabel({
 		left: 30,
 		top: 50,
@@ -227,7 +226,6 @@ enterLabel.addEventListener('click', function(event){
 		font: {fontFamily: 'Cochin', fontSize: '20'}
 	});
 	
-	//prompt
 	var popupPromptLabel = Ti.UI.createLabel({
 		left: 30,
 		bottom: 53,
@@ -237,30 +235,18 @@ enterLabel.addEventListener('click', function(event){
 		font: {fontFamily: 'Cochin', fontSize: '16'}
 	});
 
-	//get ready to use content.js
 	var loadContent = require('content');
 	
-	//if clicked ok, then...	
-	popupViewOK.addEventListener('click', function(event){
 		
-		//form validation
+	popupViewOK.addEventListener('click', function(event){
 		if(Number(popupViewTextBox.value) >= '10' && Number(popupViewTextBox.value) <= '1000'){
-				
-				//change value of numPeople to user's input
 				numPeople = popupViewTextBox.value;
-				
-				//close popup
 				closePopup();
-				
-				//execute content.js 'tabpage' function
 				loadContent.tabPage();
 		}else{
-				//create an error window
 				var errorWindow = Ti.UI.createWindow({
 					backgroundColor: 'transparent'
 				});
-				
-				//shade it
 				var errorWindowBackground = Ti.UI.createView({
 					backgroundColor: '#404041',
 					opacity: '0.50',
@@ -268,8 +254,6 @@ enterLabel.addEventListener('click', function(event){
 					height: screenHeight
 				});
 				errorWindow.add(errorWindowBackground);
-				
-				//escape hatch
 				var errorEscapeHatch = Ti.UI.createView({
 					top: 5,
 					right: 5,
@@ -285,8 +269,6 @@ enterLabel.addEventListener('click', function(event){
 					right: 0
 				});
 				errorEscapeHatch.add(errorEscapeHatchLabel);
-				
-				//popup
 				var errorBox = Ti.UI.createView({
 					height: '150',
 					width: '250',
@@ -308,13 +290,9 @@ enterLabel.addEventListener('click', function(event){
 			    	right: 5,
 			    	bottom: 5,
 				});
-				
-				//function to close popup
 				var closeError = function(){
 					errorWindow.close();
 				};
-				
-				//build error window
 				errorOK.addEventListener('click', closeError);
 				errorEscapeHatch.addEventListener('click', closeError);
 				errorBox.add(errorMessage, errorEscapeHatch, errorOK);
@@ -324,27 +302,28 @@ enterLabel.addEventListener('click', function(event){
 		}
 	});
 	
-	//build popup window
+	
 	popupView.add(popupViewBackground, escapeHatch, popupPromptLabel, instructionsLabel, popupViewTextBox, popupViewOK);
 	
-	//popup closing escape hatch
+	
 	escapeHatch.addEventListener('click', closePopup);
 	
-	//initial popup build
+	
 	escapeHatch.add(escapeHatchLabel);
 	popupWindow.add(popupWindowBackground, popupView);
 	popupWindow.open();
+	
+	
+	
+	
 });
 
-//access login page
 var loadLogin = require('login');
 
-//join button function to access login.js functions
 joinButton.addEventListener('click', function(event){
 	loadLogin.loginPop();
 });
 
-//build main window
 mainWindow.add(titleView, titleLabel, enterButton, enterLabel, joinView);
 mainWindow.open();
 
